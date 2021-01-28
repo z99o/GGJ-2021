@@ -44,6 +44,7 @@ public class Mouse_Look : MonoBehaviour
             power = 10;
         else if(power < 20)
             power = 20;
+        power = 10;
         pos.y = bob_h + (bob_a * Mathf.Sin(timer*power));
         Debug.Log(power);
         timer += Time.deltaTime;

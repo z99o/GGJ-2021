@@ -6,7 +6,7 @@ public class Character_Movement_3D : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] public CharacterController controller;
-    [SerializeField] private float m_min_speed = 0f;
+    [SerializeField] private float m_base_speed = 0f;
     [SerializeField] public float  m_max_speed = 5f;
     [SerializeField] public float  m_cur_speed_x;
     [SerializeField] public float  m_cur_speed_z;
@@ -88,15 +88,15 @@ public class Character_Movement_3D : MonoBehaviour
         float val = 0.5f;
         if(x < val && x > -val){
             //reset x's acceleration
-            m_cur_speed_x = 0;
+            m_cur_speed_x = m_base_speed;
         }
         if(z < val && z > -val){
             //reset z's acceleration
-            m_cur_speed_z = 0;
+            m_cur_speed_z = m_base_speed;
         }
         //Lastly, clamp everything
-        m_cur_speed_x = Mathf.Clamp(m_cur_speed_x,m_min_speed,m_max_speed);
-        m_cur_speed_z = Mathf.Clamp(m_cur_speed_z,m_min_speed,m_max_speed);
+        m_cur_speed_x = Mathf.Clamp(m_cur_speed_x,-m_max_speed,m_max_speed);
+        m_cur_speed_z = Mathf.Clamp(m_cur_speed_z,-m_max_speed,m_max_speed);
         return new Vector2(m_cur_speed_x,m_cur_speed_z);
     }
 
