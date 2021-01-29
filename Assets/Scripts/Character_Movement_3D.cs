@@ -150,11 +150,12 @@ public class Character_Movement_3D : MonoBehaviour
     }
 
     public void Kick(){
-        Vector3 r = new Vector3(0,0,-90);
-        leg_joint.transform.Rotate(r*Time.deltaTime*kick_strength);
-        if(leg_joint.transform.rotation.eulerAngles == r){
-            r*= -1;
-        }
+    //    Vector3 r = new Vector3(0,0,-90);
+     //   Debug.Log(leg_joint.transform.localRotation.eulerAngles.z );
+      //  if(leg_joint.transform.localRotation.eulerAngles.z > 270){
+       //     leg_joint.transform.Rotate(r*Time.deltaTime*kick_strength);
+      //  }
+      //  rb.MoveRotation(Quaternion.EulerAngles(0,0,-90));
     }
 
 
