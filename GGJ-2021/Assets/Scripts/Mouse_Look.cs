@@ -35,18 +35,16 @@ public class Mouse_Look : MonoBehaviour
         Vector3 pos = transform.localPosition;
         //bob the camera at height h an amplitude a and rate speed magnitude
         float power = (Mathf.Abs(new Vector2(controller.m_cur_speed_x,controller.m_cur_speed_z).magnitude)*bob_f);
-        //headass (changing power incrimentally is super jittery)
-        if(power < 3)
-            power = 3;
-        else if(power < 5)
-            power = 5;
-        else if(power < 10)
+        if(power > 0)
             power = 10;
-        else if(power < 20)
+        if(controller.i_is_sprinting && !controller.m_sprint_is_exhausted)
             power = 20;
-        power = 10;
+        if(controller.m_sprint_is_exhausted)
+            power = 5;
+        if(!controller.m_is_grounded)
+            power = 0;
         pos.y = bob_h + (bob_a * Mathf.Sin(timer*power));
-        Debug.Log(power);
+        //Debug.Log(power);
         timer += Time.deltaTime;
         transform.localPosition = pos;
     }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1043265027}
   - component: {fileID: 1043265028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CM vcam1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 1996119157}
   - component: {fileID: 1996119158}
   - component: {fileID: 1996119159}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,9 @@ GameObject:
   - component: {fileID: 2649440226451119451}
   - component: {fileID: 2649440226451119428}
   - component: {fileID: 2649440226451119454}
-  m_Layer: 0
+  - component: {fileID: 1114228304}
+  - component: {fileID: 1114228305}
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,25 +260,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f347bbe21365b845bd78ab4526bab02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 2649440226451119428}
-  m_min_speed: 0
+  m_base_speed: 0
   m_max_speed: 10
   m_cur_speed_x: 0
   m_cur_speed_z: 0
-  m_acceleration_rate: 5
-  jump_height: 3
+  m_acceleration_rate: 10
+  m_jump_height: 1
   m_gravity: -9.8
+  m_sprint_multiplier: 2
+  m_sprint_cur_level: 0
+  m_sprint_max_level: 100
+  m_sprint_recovery_speed: 5
+  m_sprint_is_exhausted: 0
   m_velocity: {x: 0, y: 0, z: 0}
-  ground_mask:
-    serializedVersion: 2
-    m_Bits: 64
   m_is_grounded: 0
-  ground_check: {fileID: 2649440227388791131}
   grounded_clearance: 0.2
+  kick_strength: 0
   i_x_movement: 0
   i_z_movement: 0
   i_is_jumping: 0
+  i_is_kicking: 0
+  i_is_sprinting: 0
+  controller: {fileID: 2649440226451119428}
   cam: {fileID: 2649440226828827487}
+  ground_mask:
+    serializedVersion: 2
+    m_Bits: 64
+  ground_check: {fileID: 2649440227388791131}
+--- !u!54 &1114228304
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649440226451119429}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 64
+  m_CollisionDetection: 0
+--- !u!135 &1114228305
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649440226451119429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.01
+  m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!1 &2649440226828827482
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +329,7 @@ GameObject:
   - component: {fileID: 2649440226828827481}
   - component: {fileID: 2649440226828827486}
   - component: {fileID: 963194230}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -376,13 +415,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouse_sensitivity: 250
-  x_rotation: -36.3842
+  x_rotation: 18.29082
   player: {fileID: 2649440226451119448}
   controller: {fileID: 2649440226451119454}
   bob_a: 0.1
   bob_h: 0.7
   bob_f: 1
-  timer: 0
+  timer: 154.7531
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +465,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2649440227388791131}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: groundcheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

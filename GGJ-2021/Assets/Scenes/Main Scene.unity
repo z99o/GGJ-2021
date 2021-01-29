@@ -245,40 +245,6 @@ Light:
   m_CorrespondingSourceObject: {fileID: 8791571262306454393, guid: 14eefa2630ce9e9438115ebfb63a688c, type: 3}
   m_PrefabInstance: {fileID: 8791571261600971235}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1114228298 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2649440226451119429, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-  m_PrefabInstance: {fileID: 2649440227213055531}
-  m_PrefabAsset: {fileID: 0}
---- !u!54 &1114228304
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114228298}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 64
-  m_CollisionDetection: 0
---- !u!135 &1114228305
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114228298}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.01
-  m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!1001 &2649440227213055531
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -286,21 +252,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1043265026, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 1996119156, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 2649440226451119429, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2649440226451119429, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2649440226451119448, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
       propertyPath: m_RootOrder
@@ -346,29 +300,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2649440226828827480, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: field of view
-      value: 90
+    - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: m_sprint_speed
+      value: 20
       objectReference: {fileID: 0}
-    - target: {fileID: 2649440226828827482, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: m_Layer
-      value: 7
+    - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: m_walk_max_speed
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2649440226828827486, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: bob_f
-      value: 1
+    - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: m_max_sprint_speed
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2649440226828827486, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: timer
-      value: 76.67255
+    - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: m_sprint_max_level
+      value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 2649440226828827486, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: x_rotation
-      value: -70.79619
+    - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: m_sprint_multiplier
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 2649440227388791108, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
-      propertyPath: m_Layer
-      value: 7
+    - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: m_sprint_recovery_speed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
