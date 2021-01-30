@@ -56,10 +56,12 @@ public class AI_Controller : MonoBehaviour {
             }
         }
         //Throwing looks weird
-        /*float chance = Random.value * 100;
-        if (chance <= 0.1 && isHoldingSomething) {
+        float chance = Random.value * 100;
+        if (chance <= 0.01 && isHoldingSomething && !holdObject.GetComponent<ThrowObject>().thrown) {
             GetComponent<PlayerInteractions>().ThrowObject();
-        }*/
+            holdObject.GetComponent<ThrowObject>().wasThrown();
+            isHoldingSomething = false;
+        }
 
     }
 
@@ -95,7 +97,9 @@ public class AI_Controller : MonoBehaviour {
             chance = (int)(Random.value * 100);
             if (chance > 33) {
                 GetComponent<PlayerInteractions>().PickUpObject(GameObject.FindWithTag("Interactable"));
-                isHoldingSomething = true;
+                if (holdObject != null) {
+                    isHoldingSomething = true;
+                }
             }
         }
     }
@@ -131,7 +135,9 @@ public class AI_Controller : MonoBehaviour {
             int chance = 100;//(int)(Random.value * 100);
             if (chance > 33 && !isHoldingSomething) {
                 holdObject = GameObject.FindWithTag("Interactable");
-                isHoldingSomething = true;
+                if (holdObject != null) {
+                    isHoldingSomething = true;
+                }
             }
         }
     }
