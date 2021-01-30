@@ -296,12 +296,11 @@ GameObject:
   - component: {fileID: 2649440226451119448}
   - component: {fileID: 2649440226451119449}
   - component: {fileID: 2649440226451119450}
-  - component: {fileID: 2649440226451119451}
   - component: {fileID: 2649440226451119428}
   - component: {fileID: 2649440226451119454}
   - component: {fileID: 1114228304}
-  - component: {fileID: 1114228305}
   - component: {fileID: 43704955}
+  - component: {fileID: 43704956}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -375,20 +374,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &2649440226451119451
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2649440226451119429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &2649440226451119428
 CharacterController:
   m_ObjectHideFlags: 0
@@ -468,19 +453,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 64
   m_CollisionDetection: 0
---- !u!135 &1114228305
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2649440226451119429}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.01
-  m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!114 &43704955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,7 +470,21 @@ MonoBehaviour:
   lookObject: {fileID: 0}
   pickupParent: {fileID: 0}
   throwForce: 1000
+  drivenByAi: 0
   maxDistance: 15
+--- !u!65 &43704956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649440226451119429}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2649440226828827482
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,13 +586,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouse_sensitivity: 250
-  x_rotation: 18.29082
+  x_rotation: 6.267953
   player: {fileID: 2649440226451119448}
   controller: {fileID: 2649440226451119454}
   bob_a: 0.1
   bob_h: 0.7
   bob_f: 1
-  timer: 154.7531
+  timer: 167.8065
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
