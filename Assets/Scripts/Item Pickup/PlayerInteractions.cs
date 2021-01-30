@@ -50,7 +50,7 @@ public class PlayerInteractions : MonoBehaviour {
         if (Input.GetButtonDown("Fire2")) {
             if (physicsObject != null) {
                 BreakConnection();
-                pickupRB.AddForce(transform.forward * throwForce);
+                pickupRB.AddForce((pickupRB.transform.position - transform.position) * throwForce);
             }
         }
     }
