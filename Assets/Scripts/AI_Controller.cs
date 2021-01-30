@@ -165,7 +165,7 @@ public class AI_Controller : MonoBehaviour {
         GetComponent<Rigidbody>().isKinematic = false;
         GetComponent<BoxCollider>().enabled = true;
         is_ragdolled = false;
-        Debug.Log(count + " ragdoll joints disabled");
+        //Debug.Log(count + " ragdoll joints disabled");
         
     }
     private void EnableRagdoll(){
@@ -181,16 +181,18 @@ public class AI_Controller : MonoBehaviour {
         }
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
-        Debug.Log(count + " ragdoll joints enabled");
+        //Debug.Log(count + " ragdoll joints enabled");
         is_ragdolled = true;
     }
     private void OnCollisionEnter (Collision collision) {
         float collisionForce = collision.impulse.magnitude / Time.fixedDeltaTime;
         
-        if (collisionForce > force_to_ragdoll) {
+        if (collisionForce > force_to_ragdoll && collision.transform.tag == "Interactable") {
             EnableRagdoll();
             Invoke("DisableRagdoll",5f);
         }
+        //if(collisionForce > force_to_ragdoll)
+        //    print(collision.transform.name + " collided with " + collisionForce + ", possibly causing a ragdoll");
     }
 
 }
