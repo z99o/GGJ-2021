@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//set to kinematic
+
 public class PlayerInteractions : MonoBehaviour {
     [Header("InteractableInfo")]
     public float sphereCastRadius = 0.5f;
@@ -15,7 +15,6 @@ public class PlayerInteractions : MonoBehaviour {
     [SerializeField] private Transform pickupParent;
     private Rigidbody pickupRB;
     public float throwForce = 100f;
-    public bool drivenByAi;
 
     [Header("ObjectFollow")]
     [SerializeField] private float maxDistance = 1f;
@@ -35,26 +34,25 @@ public class PlayerInteractions : MonoBehaviour {
             lookObject = null;
         }
 
-        if (!drivenByAi) {
-            if (Input.GetButtonDown("Fire1")) {
-                //and we're not holding anything
-                if (physicsObject == null) {
-                    //and we are looking an interactable object
-                    if (lookObject != null) {
-                        PickUpObject();
-                    }
-
-                } else {
-                    BreakConnection();
+        if (Input.GetButtonDown("Fire1")) {
+            //and we're not holding anything
+            if (physicsObject == null) {
+                //and we are looking an interactable object
+                if (lookObject != null) {
+                    PickUpObject();
                 }
-            }
 
-            if (Input.GetButtonDown("Fire2")) {
-                if (physicsObject != null) {
-                    ThrowObject();
-                }
+            } else {
+                BreakConnection();
             }
-        }   
+        }
+
+        if (Input.GetButtonDown("Fire2")) {
+            if (physicsObject != null) {
+                BreakConnection();
+                pickupRB.AddForce(transform.forward * throwForce);
+            }
+        }
     }
 
     //Release the object
@@ -66,7 +64,6 @@ public class PlayerInteractions : MonoBehaviour {
         physicsObject = null;
     }
 
-    //player pickup
     public void PickUpObject() {
         physicsObject = lookObject;
         pickupRB = physicsObject.GetComponent<Rigidbody>();
@@ -77,22 +74,5 @@ public class PlayerInteractions : MonoBehaviour {
         physicsObject.transform.parent = GameObject.Find("Object Hold Location").transform;
     }
 
-    //ai pickup
-    public void PickUpObject(GameObject pickUp) {
-        if (physicsObject == null) {
-            physicsObject = pickUp;
-            pickupRB = physicsObject.GetComponent<Rigidbody>();
-
-            physicsObject.GetComponent<Rigidbody>().useGravity = false;
-            physicsObject.GetComponent<Rigidbody>().freezeRotation = true;
-            physicsObject.transform.position = pickupParent.transform.position;
-            physicsObject.transform.parent = GameObject.Find("Object Hold Location").transform;
-        }
-    }
-
-    public void ThrowObject() {
-        BreakConnection();
-        pickupRB.AddForce(transform.forward * throwForce);
-    }
 
 }
