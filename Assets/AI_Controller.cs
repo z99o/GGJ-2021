@@ -16,6 +16,10 @@ public class AI_Controller : MonoBehaviour
     public float time_between_attacks;
     bool already_attacked;
     public bool player_in_sight_range, player_in_attack_range;
+
+    public Rigidbody[] BodyParts;
+
+    public Animator animator;
     
     // Start is called before the first frame update
 
@@ -24,6 +28,8 @@ public class AI_Controller : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        animator = this.GetComponentInChildren<Animator>();
+        DisableRagdoll();
     }
 
     // Update is called once per frame
@@ -45,10 +51,14 @@ public class AI_Controller : MonoBehaviour
 
     private void Patrolling(){
         if(!is_target_set){
+            animator.SetBool("a_is_idle",true);
+            animator.SetBool("a_running",false);
             SearchWalkPoint();
         }
         if(is_target_set){
             agent.SetDestination(target_pos);
+            animator.SetBool("a_is_idle",false);
+            animator.SetBool("a_running",true);
         }
         Vector3 target_d = transform.position - target_pos;
         if(target_d.magnitude < 1f){
@@ -71,11 +81,34 @@ public class AI_Controller : MonoBehaviour
         agent.SetDestination(transform.position);
         transform.LookAt(player);
         if(!already_attacked){
+            //attack
             already_attacked = true;
+            animator.SetTrigger("a_attack");
+            animator.SetBool("a_is_idle",false);
+            animator.SetBool("a_running",true);
             Invoke(nameof(ResetAttack),time_between_attacks);
         }
     }
     private void ResetAttack(){
         already_attacked = false;
+    }
+    
+    private void DisableRagdoll(){
+        int count = 0;
+        foreach (var item in BodyParts)
+        {
+            item.isKinematic = true;
+            item.detectCollisions = false;
+            count ++;
+        }
+        Debug.Log(count + " ragdoll joints disabled");
+        
+    }
+    private void EnableRagdoll(){
+        foreach (var item in BodyParts)
+        {
+            item.isKinematic = false;
+            item.detectCollisions = true;
+        }
     }
 }
