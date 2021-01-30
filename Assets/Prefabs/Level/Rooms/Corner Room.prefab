@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 3867581246283178715}
   - component: {fileID: 3867581246283178714}
   m_Layer: 6
-  m_Name: Floor (2)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -1872,7 +1872,7 @@ GameObject:
   - component: {fileID: 8394926704410670652}
   - component: {fileID: 8394926704410670653}
   m_Layer: 6
-  m_Name: Floor (6)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2096,7 +2096,7 @@ GameObject:
   - component: {fileID: 8394926704616155881}
   - component: {fileID: 8394926704616155882}
   m_Layer: 6
-  m_Name: Floor (2)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2247,7 +2247,7 @@ GameObject:
   - component: {fileID: 8394926704690542329}
   - component: {fileID: 8394926704690542330}
   m_Layer: 6
-  m_Name: Floor (8)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2583,7 +2583,7 @@ GameObject:
   - component: {fileID: 8394926704935634422}
   - component: {fileID: 8394926704935634423}
   m_Layer: 6
-  m_Name: Floor
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3253,7 +3253,7 @@ GameObject:
   - component: {fileID: 8394926705458941606}
   - component: {fileID: 8394926705458941607}
   m_Layer: 6
-  m_Name: Floor (7)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3365,7 +3365,7 @@ GameObject:
   - component: {fileID: 8394926705565017457}
   - component: {fileID: 8394926705565017458}
   m_Layer: 6
-  m_Name: Floor (1)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3919,7 +3919,7 @@ GameObject:
   - component: {fileID: 8394926705804101411}
   - component: {fileID: 8394926705804101412}
   m_Layer: 6
-  m_Name: Floor (4)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4031,7 +4031,7 @@ GameObject:
   - component: {fileID: 8394926705912114743}
   - component: {fileID: 8394926705912114744}
   m_Layer: 6
-  m_Name: Floor (3)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4323,7 +4323,7 @@ GameObject:
   - component: {fileID: 8394926706060761322}
   - component: {fileID: 8394926706060761323}
   m_Layer: 6
-  m_Name: Floor (5)
+  m_Name: Ceiling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
