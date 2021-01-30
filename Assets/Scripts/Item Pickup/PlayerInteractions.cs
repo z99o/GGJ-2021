@@ -49,19 +49,12 @@ public class PlayerInteractions : MonoBehaviour {
                 }
             }
 
-<<<<<<< HEAD
-        if (Input.GetButtonDown("Fire2")) {
-            if (physicsObject != null) {
-                BreakConnection();
-                pickupRB.AddForce((pickupRB.transform.position - transform.position) * throwForce);
-=======
             if (Input.GetButtonDown("Fire2")) {
                 if (physicsObject != null) {
                     ThrowObject();
                 }
->>>>>>> parent of a05599c... Revert "Added AI Interaction capabilities"
             }
-        }   
+        }
     }
 
     //Release the object
@@ -99,7 +92,7 @@ public class PlayerInteractions : MonoBehaviour {
 
     public void ThrowObject() {
         BreakConnection();
-        pickupRB.AddForce(transform.forward * throwForce);
+        pickupRB.AddForce((pickupRB.transform.position - transform.position) * throwForce);
     }
 
 }
