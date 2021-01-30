@@ -187,6 +187,7 @@ public class AI_Controller : MonoBehaviour {
         }
         GetComponent<BoxCollider>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
+        agent.SetDestination(transform.position);
         //Debug.Log(count + " ragdoll joints enabled");
         is_ragdolled = true;
     }

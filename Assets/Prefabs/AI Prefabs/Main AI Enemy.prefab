@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &417483286516427919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2451719854832595246}
+  m_Layer: 0
+  m_Name: Object Hold Location
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2451719854832595246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417483286516427919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4334143942870780388}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &989097383621593144
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +652,7 @@ GameObject:
   - component: {fileID: 4300728250194886070}
   - component: {fileID: 4300728250194886071}
   - component: {fileID: 4300728250194886068}
+  - component: {fileID: 1911625229}
   m_Layer: 0
   m_Name: Main AI Enemy
   m_TagString: Untagged
@@ -636,12 +667,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3994174309932798814}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -11.616252, y: -7.33, z: -14.944412}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4653675959983184250}
   - {fileID: 2908430727367347290}
+  - {fileID: 2451719854832595246}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -659,7 +691,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &4300728250194886069
 BoxCollider:
@@ -673,7 +705,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.11, y: 3.87, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2.21, z: 0}
 --- !u!95 &4300728250194886070
 Animator:
   serializedVersion: 3
@@ -720,10 +752,10 @@ MonoBehaviour:
   walk_point_range: 100
   sight_range: 20
   attack_range: 2
-  interact_range: 0
+  interact_range: 5
   time_between_attacks: 1
   is_ragdolled: 0
-  force_to_ragdoll: 200
+  force_to_ragdoll: 750
   player_in_sight_range: 0
   player_in_attack_range: 0
   interactable_in_range: 0
@@ -763,6 +795,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1911625229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3994174309932798814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f24c0882d881624ebd0cf626eec6019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphereCastRadius: 0.5
+  interactableLayerIndex: 10
+  lookObject: {fileID: 0}
+  pickupParent: {fileID: 1267638363, guid: ac2e925257e921e418a78071b0f18793, type: 3}
+  throwForce: 1000
+  drivenByAi: 1
+  maxDistance: 1
 --- !u!1 &4043287335727278993
 GameObject:
   m_ObjectHideFlags: 0
