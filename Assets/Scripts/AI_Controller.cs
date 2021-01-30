@@ -55,7 +55,7 @@ public class AI_Controller : MonoBehaviour {
                 GetComponent<PlayerInteractions>().PickUpObject(holdObject);
             }
         }
-        //Throwing looks weird
+
         float chance = Random.value * 100;
         if (chance <= 0.01 && isHoldingSomething && !holdObject.GetComponent<ThrowObject>().thrown) {
             GetComponent<PlayerInteractions>().ThrowObject();

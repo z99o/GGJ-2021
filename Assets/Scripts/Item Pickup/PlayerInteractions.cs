@@ -76,7 +76,7 @@ public class PlayerInteractions : MonoBehaviour {
         physicsObject.GetComponent<Rigidbody>().freezeRotation = true;
         physicsObject.GetComponent<Rigidbody>().isKinematic = true;
         physicsObject.transform.position = lookObject.transform.position;
-        physicsObject.transform.parent = GameObject.Find("Object Hold Location").transform;
+        physicsObject.transform.parent = pickupParent.transform;
     }
 
     //ai pickup
@@ -89,7 +89,7 @@ public class PlayerInteractions : MonoBehaviour {
             physicsObject.GetComponent<Rigidbody>().freezeRotation = true;
             physicsObject.GetComponent<Rigidbody>().isKinematic = true;
             physicsObject.transform.position = pickupParent.transform.position;
-            physicsObject.transform.parent = GameObject.Find("Object Hold Location").transform;
+            physicsObject.transform.parent = pickupParent.transform;
         }
     }
 
