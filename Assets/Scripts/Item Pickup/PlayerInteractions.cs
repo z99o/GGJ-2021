@@ -8,24 +8,16 @@ public class PlayerInteractions : MonoBehaviour {
     public int interactableLayerIndex;
     private Vector3 raycastPos;
     public GameObject lookObject;
-    private PhysicsObject physicsObject;
+    private GameObject physicsObject;
     private Camera mainCamera;
 
     [Header("Pickup")]
     [SerializeField] private Transform pickupParent;
-    public GameObject currentlyPickedUpObject;
     private Rigidbody pickupRB;
+    public float throwForce = 100f;
 
     [Header("ObjectFollow")]
-    [SerializeField] private float minSpeed = 0;
-    [SerializeField] private float maxSpeed = 10000f;
-    [SerializeField] private float maxDistance = 10f;
-    private float currentSpeed = 0f;
-    private float currentDist = 0f;
-
-    [Header("Rotation")]
-    public float rotationSpeed = 10000f;
-    Quaternion lookRot;
+    [SerializeField] private float maxDistance = 1f;
 
     private void Start() {
         mainCamera = Camera.main;
@@ -37,65 +29,49 @@ public class PlayerInteractions : MonoBehaviour {
         raycastPos = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
         if (Physics.SphereCast(raycastPos, sphereCastRadius, mainCamera.transform.forward, out hit, maxDistance, 1 << interactableLayerIndex)) {
-
             lookObject = hit.collider.transform.root.gameObject;
-
         } else {
             lookObject = null;
-
         }
 
-
-
-        //if we press the button of choice
-        if (Input.GetButton("Fire1")) {
+        if (Input.GetButtonDown("Fire1")) {
             //and we're not holding anything
-            if (currentlyPickedUpObject == null) {
+            if (physicsObject == null) {
                 //and we are looking an interactable object
                 if (lookObject != null) {
                     PickUpObject();
                 }
 
+            } else {
+                BreakConnection();
             }
-        } else if (currentlyPickedUpObject != null) {
-            BreakConnection();
         }
 
-
-    }
-
-    //Velocity movement toward pickup parent and rotation
-    private void FixedUpdate() {
-        if (currentlyPickedUpObject != null) {
-            currentDist = Vector3.Distance(pickupParent.position, pickupRB.position);
-            currentSpeed = Mathf.SmoothStep(minSpeed, maxSpeed, currentDist / maxDistance);
-            currentSpeed *= Time.fixedDeltaTime;
-            Vector3 direction = pickupParent.position - pickupRB.position;
-            pickupRB.velocity = direction.normalized * currentSpeed;
-
-            //Rotation
-            lookRot = Quaternion.LookRotation(mainCamera.transform.position - pickupRB.position);
-            lookRot = Quaternion.Slerp(mainCamera.transform.rotation, lookRot, rotationSpeed * Time.fixedDeltaTime);
-            pickupRB.MoveRotation(lookRot);
+        if (Input.GetButtonDown("Fire2")) {
+            if (physicsObject != null) {
+                BreakConnection();
+                pickupRB.AddForce(transform.forward * throwForce);
+            }
         }
-
     }
 
     //Release the object
     public void BreakConnection() {
-        pickupRB.constraints = RigidbodyConstraints.None;
-        currentlyPickedUpObject = null;
-        physicsObject.pickedUp = false;
-        currentDist = 0;
+        physicsObject.transform.parent = null;
+        physicsObject.GetComponent<Rigidbody>().useGravity = true;
+        physicsObject.GetComponent<Rigidbody>().freezeRotation = false;
+
+        physicsObject = null;
     }
 
     public void PickUpObject() {
-        physicsObject = lookObject.GetComponentInChildren<PhysicsObject>();
-        currentlyPickedUpObject = lookObject;
-        pickupRB = currentlyPickedUpObject.GetComponent<Rigidbody>();
-        //pickupRB.constraints = RigidbodyConstraints.FreezeRotation;
-        physicsObject.playerInteractions = this;
-        StartCoroutine(physicsObject.PickUp());
+        physicsObject = lookObject;
+        pickupRB = physicsObject.GetComponent<Rigidbody>();
+
+        physicsObject.GetComponent<Rigidbody>().useGravity = false;
+        physicsObject.GetComponent<Rigidbody>().freezeRotation = true;
+        physicsObject.transform.position = lookObject.transform.position;
+        physicsObject.transform.parent = GameObject.Find("Object Hold Location").transform;
     }
 
 
