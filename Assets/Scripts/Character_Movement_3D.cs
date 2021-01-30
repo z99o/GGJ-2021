@@ -20,6 +20,7 @@ public class Character_Movement_3D : MonoBehaviour
     [SerializeField] private float m_sprint_recovery_speed;
     [SerializeField] public bool m_sprint_is_exhausted;
     [SerializeField] private float m_max_sprint_speed;
+    [SerializeField] private float m_health;
 
     [SerializeField] Vector3 m_velocity;
     [SerializeField] public bool m_is_grounded;
