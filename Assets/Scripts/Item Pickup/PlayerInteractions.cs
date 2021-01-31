@@ -65,6 +65,11 @@ public class PlayerInteractions : MonoBehaviour {
         physicsObject.GetComponent<Rigidbody>().useGravity = true;
         physicsObject.GetComponent<Rigidbody>().freezeRotation = false;
         physicsObject.GetComponent<Rigidbody>().isKinematic = false;
+        BoxCollider[] phys_colliders = physicsObject.GetComponentsInChildren<BoxCollider>();
+        foreach (var item in phys_colliders)
+        {
+            item.enabled = true;
+        }
 
         holdingSomething = false;
 
@@ -81,6 +86,11 @@ public class PlayerInteractions : MonoBehaviour {
         physicsObject.GetComponent<Rigidbody>().useGravity = false;
         physicsObject.GetComponent<Rigidbody>().freezeRotation = true;
         physicsObject.GetComponent<Rigidbody>().isKinematic = true;
+        BoxCollider[] phys_colliders = physicsObject.GetComponentsInChildren<BoxCollider>();
+        foreach (var item in phys_colliders)
+        {
+            item.enabled = false;
+        }
         physicsObject.transform.position = lookObject.transform.position;
         physicsObject.transform.parent = pickupParent.transform;
 

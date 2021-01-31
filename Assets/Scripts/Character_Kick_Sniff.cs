@@ -32,7 +32,7 @@ public class Character_Kick_Sniff : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        
+        kick_timer+= Time.deltaTime;
         if (Input.GetButtonDown("Kick")) {
             Kick();
         }
@@ -48,19 +48,24 @@ public class Character_Kick_Sniff : MonoBehaviour {
         }
     }
 
+    public float sniff_volume;
     void Sniff() {
         float dist = Vector3.Distance(transform.position, cereal.transform.position);
         float alpha = (maxIndicatorAlpha/dist) * distMult;
         alpha = Mathf.Clamp(alpha, 0, maxIndicatorAlpha);
 
         int sniffVal = (int)(Mathf.Round(UnityEngine.Random.value * 3));
-        GetComponent<AudioSource>().PlayOneShot(sniffSounds[sniffVal], 0.8f);
+        GetComponent<AudioSource>().PlayOneShot(sniffSounds[sniffVal], sniff_volume);
 
         StartCoroutine(EvalCurve(alpha, tintObject));
     }
 
     public float kick_volume;
+    public float kick_cooldown = 1.5f;
+    public float kick_timer;
     void Kick() {
+        if(kick_timer < kick_cooldown)
+            return;
         Collider[] colliders = Physics.OverlapSphere(kickOrigin.position, kickRadius);
 
         foreach (Collider nearbyObject in colliders) {
@@ -70,6 +75,7 @@ public class Character_Kick_Sniff : MonoBehaviour {
                 GetComponent<AudioSource>().PlayOneShot(kickSound, kick_volume); //ow my ears
             }
         }
+        kick_timer = 0;
     }
 
     IEnumerator EvalCurve(float alpha, Transform tintObject) {
