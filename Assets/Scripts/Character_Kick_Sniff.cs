@@ -53,7 +53,7 @@ public class Character_Kick_Sniff : MonoBehaviour {
         float alpha = (maxIndicatorAlpha/dist) * distMult;
         alpha = Mathf.Clamp(alpha, 0, maxIndicatorAlpha);
 
-        int sniffVal = (int)(Mathf.Round(Random.value * 3));
+        int sniffVal = (int)(Mathf.Round(UnityEngine.Random.value * 3));
         GetComponent<AudioSource>().PlayOneShot(sniffSounds[sniffVal], 0.8f);
 
         StartCoroutine(EvalCurve(alpha, tintObject));
