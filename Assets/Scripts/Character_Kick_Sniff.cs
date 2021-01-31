@@ -11,7 +11,7 @@ public class Character_Kick_Sniff : MonoBehaviour {
     public float distMult; //How far away you're able to get max alpha
     public AnimationCurve m_tintCurve;
     public float m_curveDuration;
-    public GameObject Canvas;
+    public Transform tintObject;
 
     [Header("Kicking Settings")]
     public Transform kickOrigin;
@@ -41,7 +41,6 @@ public class Character_Kick_Sniff : MonoBehaviour {
         float dist = Vector3.Distance(transform.position, cereal.transform.position);
         float alpha = (maxIndicatorAlpha/dist) * distMult;
         alpha = Mathf.Clamp(alpha, 0, maxIndicatorAlpha);
-        Transform tintObject = Canvas.transform.Find("Tint");
 
         StartCoroutine(EvalCurve(alpha, tintObject));
     }

@@ -27,7 +27,11 @@ public class AI_Controller : MonoBehaviour {
     public Rigidbody[] body_parts;
     public List<Transform> saved_transforms;
 
+    private GameObject cereal;
+
     public Animator animator;
+
+    private bool playerHasCereal;
 
 
     void Start() {
@@ -35,24 +39,29 @@ public class AI_Controller : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         objectThrown = false;
+        cereal = GameObject.Find("Cereal");
         //EnableRagdoll();
         DisableRagdoll();
     }
 
     void Update() {
+        playerHasCereal = cereal.GetComponent<Win_Condition>().pickedUpByPlayer;
+
         //Check if player in sight
         player_in_attack_range = Physics.CheckSphere(transform.position, attack_range, lm_player);
         player_in_sight_range = Physics.CheckSphere(transform.position, sight_range, lm_player);
         interactable_in_range = Physics.CheckSphere(transform.position, interact_range, lm_interactable);
         if(!is_ragdolled){
-            if (!player_in_sight_range && !player_in_attack_range) {
-                Patrolling();
-            }
-            if (player_in_sight_range && !player_in_attack_range) {
-                ChasePlayer();
-            }
-            if (player_in_sight_range && player_in_attack_range) {
-                AttackPlayer();
+            if (playerHasCereal) {
+                if (player_in_sight_range && !player_in_attack_range) {
+                    ChasePlayer();
+                } else if (player_in_sight_range && player_in_attack_range) {
+                    AttackPlayer();
+                }
+            } else {
+                if (!player_in_sight_range && !player_in_attack_range) {
+                    Patrolling();
+                }
             }
 
             if (isHoldingSomething) {
@@ -63,18 +72,18 @@ public class AI_Controller : MonoBehaviour {
         if(objectThrown) {
             if (timer > 0) {
                 timer -= Time.deltaTime;
-                print(timer);
+                //print(timer);
             } else {
                 objectThrown = false;
                 timer = 2f;
-                print("Done");
+                //print("Done");
             }
         }
 
         float chance = Random.value * 100;
         if (chance >= 0.01 && isHoldingSomething) {
             throwObject();
-            print("thrown");
+            //print("thrown");
         }
 
     }
@@ -89,7 +98,7 @@ public class AI_Controller : MonoBehaviour {
             animator.SetBool("a_running",false);
             SearchWalkPoint();
         }
-        if(is_target_set){
+        if(is_target_set) {
             animator.SetBool("a_is_idle",false);
             animator.SetBool("a_running",true);
             agent.SetDestination(target_pos);
@@ -112,7 +121,7 @@ public class AI_Controller : MonoBehaviour {
             if (chance > 33) {
                 GetComponent<PlayerInteractions>().PickUpObject(GameObject.FindWithTag("Interactable"));
                 if (holdObject != null) {
-                    isHoldingSomething = true;
+                    isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
         }
@@ -150,7 +159,7 @@ public class AI_Controller : MonoBehaviour {
             if (chance > 33 && !isHoldingSomething && !objectThrown) {
                 holdObject = GameObject.FindWithTag("Interactable");
                 if (holdObject != null) {
-                    isHoldingSomething = true;
+                    isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
         }
@@ -217,9 +226,11 @@ public class AI_Controller : MonoBehaviour {
     }
 
     private void throwObject() {
-        GetComponent<PlayerInteractions>().ThrowObject();
-        objectThrown = true;
-        isHoldingSomething = false;
+        if (isHoldingSomething) {
+            GetComponent<PlayerInteractions>().ThrowObject();
+            objectThrown = true;
+            isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
+        }
     }
 
 }
