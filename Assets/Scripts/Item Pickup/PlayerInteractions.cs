@@ -77,6 +77,11 @@ public class PlayerInteractions : MonoBehaviour {
         physicsObject.GetComponent<Rigidbody>().isKinematic = true;
         physicsObject.transform.position = lookObject.transform.position;
         physicsObject.transform.parent = pickupParent.transform;
+
+        if (physicsObject.TryGetComponent(out Win_Condition cereal)) {
+            cereal.pickedUpByPlayer = true;
+        }
+
     }
 
     //ai pickup
@@ -90,6 +95,11 @@ public class PlayerInteractions : MonoBehaviour {
             physicsObject.GetComponent<Rigidbody>().isKinematic = true;
             physicsObject.transform.position = pickupParent.transform.position;
             physicsObject.transform.parent = pickupParent.transform;
+
+            if (physicsObject.TryGetComponent(out Win_Condition cereal)) {
+                cereal.pickedUpByPlayer = false;
+            }
+
         }
     }
 
