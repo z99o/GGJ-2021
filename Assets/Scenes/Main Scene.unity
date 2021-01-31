@@ -1354,6 +1354,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38784174dc065f642a99907695b847c1, type: 3}
+--- !u!4 &417271085 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1524555997, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+  m_PrefabInstance: {fileID: 1387984362}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &423130609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2599,6 +2604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5323cb70a5607f84e98ccb0df68a6daf, type: 3}
+--- !u!224 &881951305 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8930271517416447620, guid: 25f657a97f1947b4084e939eb7f4677d, type: 3}
+  m_PrefabInstance: {fileID: 1807897581}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &886275538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3299,27 +3309,54 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1112334335}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1dc0643fe606a064da569239d3b9d8cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   lastSniff: 0
   sniffCooldownMs: 10000
-  maxIndicatorAlpha: 0
-  distMult: 0
+  maxIndicatorAlpha: 240
+  distMult: 3
   m_tintCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2
+      outSlope: -2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  m_curveDuration: 0
-  tintObject: {fileID: 0}
+  m_curveDuration: 1
+  tintObject: {fileID: 881951305}
   sniffSounds: []
-  kickOrigin: {fileID: 0}
-  kickRadius: 0
-  kickForce: 0
+  kickOrigin: {fileID: 417271085}
+  kickRadius: 1
+  kickForce: 1000
   kickSound: {fileID: 0}
 --- !u!1001 &1155304730
 PrefabInstance:
