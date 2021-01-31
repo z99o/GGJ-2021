@@ -350,7 +350,7 @@ MonoBehaviour:
   interactableLayerIndex: 10
   lookObject: {fileID: 0}
   pickupParent: {fileID: 3831284035114213504}
-  throwForce: 1000
+  throwForce: 2000
   drivenByAi: 0
   holdingSomething: 0
   maxDistance: 15
@@ -429,6 +429,8 @@ MonoBehaviour:
   kickSound: {fileID: 8300000, guid: e88cfc22b89a32a499d7dc7843d4f8de, type: 3}
   sniff_volume: 0.5
   kick_volume: 0.02
+  kick_cooldown: 1
+  kick_timer: 0
 --- !u!82 &1112334345
 AudioSource:
   m_ObjectHideFlags: 0
@@ -626,13 +628,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouse_sensitivity: 250
-  x_rotation: -69.4098
+  x_rotation: -8.77223
   player: {fileID: 2649440226451119448}
   controller: {fileID: 2649440226451119454}
   bob_a: 0.1
   bob_h: 0.7
   bob_f: 1
-  timer: 236.99
+  timer: 302.5078
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0

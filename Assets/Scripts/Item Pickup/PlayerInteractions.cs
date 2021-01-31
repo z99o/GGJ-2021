@@ -123,7 +123,8 @@ public class PlayerInteractions : MonoBehaviour {
     public void ThrowObject() {
         if(holdingSomething == true) {
             BreakConnection();
-            pickupRB.AddForce((pickupRB.transform.position - transform.position) * throwForce);
+            Vector3 dir = (pickupRB.transform.position - transform.position);
+            pickupRB.AddForce(dir.normalized * throwForce);
         }
     }
 
