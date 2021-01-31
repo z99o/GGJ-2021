@@ -50,10 +50,13 @@ public class Character_Movement_3D : MonoBehaviour
     [SerializeField] public Transform cam;
     [SerializeField] public LayerMask ground_mask;
     [SerializeField] public Transform ground_check;
+
+    [HideInInspector]public Vector3 kickDirection;
+    [HideInInspector]public float kickDuration;
     
     void Start()
     {
-        
+        kickDirection = Vector3.zero;
     }
 
     void Update()
@@ -62,6 +65,12 @@ public class Character_Movement_3D : MonoBehaviour
         Get_Inputs();
         Move();
         checkToPlaySteps();
+
+        if(kickDuration > 0) {
+            GetComponent<CharacterController>().Move(kickDirection * Time.deltaTime);
+            kickDuration -= Time.deltaTime;
+        }
+
     }
 
     public bool Check_If_Grounded(){

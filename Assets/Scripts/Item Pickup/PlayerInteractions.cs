@@ -10,6 +10,7 @@ public class PlayerInteractions : MonoBehaviour {
     public GameObject lookObject;
     private GameObject physicsObject;
     private Camera mainCamera;
+    [HideInInspector]public bool holdingWin;
 
     [Header("Pickup")]
     [SerializeField] private Transform pickupParent;
@@ -62,6 +63,11 @@ public class PlayerInteractions : MonoBehaviour {
     public void BreakConnection() {
         if (physicsObject.GetComponent<ThrowObject>() != null) physicsObject.GetComponent<ThrowObject>().held = false;
 
+        if (physicsObject.TryGetComponent(out Win_Condition cereal)) {
+            cereal.pickedUpByPlayer = false;
+            holdingWin = false;
+        }
+
         physicsObject.transform.parent = null;
         physicsObject.GetComponent<Rigidbody>().useGravity = true;
         physicsObject.GetComponent<Rigidbody>().freezeRotation = false;
@@ -97,6 +103,7 @@ public class PlayerInteractions : MonoBehaviour {
 
         if (physicsObject.TryGetComponent(out Win_Condition cereal)) {
             cereal.pickedUpByPlayer = true;
+            holdingWin = true;
         }
     }
 
@@ -117,6 +124,7 @@ public class PlayerInteractions : MonoBehaviour {
 
             if (physicsObject.TryGetComponent(out Win_Condition cereal)) {
                 cereal.pickedUpByPlayer = false;
+                holdingWin = true;
             }
         }
     }

@@ -28,6 +28,7 @@ public class AI_Controller : MonoBehaviour {
     public Transform attackOrigin;
     public float attackRadius;
     public float attackForce;
+    public float attackDuration;
     public AudioClip attackSound;
 
     [Header("Misc")]
@@ -43,6 +44,8 @@ public class AI_Controller : MonoBehaviour {
     private NavMeshPath path;
 
     private float got_stuck_timer;
+
+    [HideInInspector] Collider[] colliders;
 
 
     void Start() {
@@ -194,21 +197,9 @@ public class AI_Controller : MonoBehaviour {
             already_attacked = true;
             animator.SetTrigger("a_attack");
 
-            Collider[] colliders = Physics.OverlapSphere(attackOrigin.position, attackRadius);
+            colliders = Physics.OverlapSphere(attackOrigin.position, attackRadius);
 
-            foreach (Collider nearbyObject in colliders) {
-                Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
-                if (rb != null) {
-                    rb.AddForce(Vector3.forward * attackForce);
-                    GetComponent<AudioSource>().PlayOneShot(attackSound, 1f);
-                }
-
-                if (nearbyObject.GetComponent<Character_Movement_3D>() != null) {
-                    nearbyObject.GetComponent<Character_Movement_3D>().Take_Damage(10f);
-                }
-            }
-
-
+            Invoke(nameof(Punch), 2f);
             Invoke(nameof(ResetAttack),time_between_attacks);
         }
     }
@@ -320,6 +311,26 @@ public class AI_Controller : MonoBehaviour {
         //Vector3.Lerp(point, navMeshData.vertices[navMeshData.indices[t + 2]], Random.value); //Made Obsolete
 
         return point;
+    }
+
+    void Punch() {
+        if (colliders != null) {
+            foreach (Collider nearbyObject in colliders) {
+                Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+                if (rb != null) {
+                    rb.AddForce(Vector3.forward * attackForce);
+                }
+
+                if (nearbyObject.GetComponent<Character_Movement_3D>() != null) {
+                    nearbyObject.GetComponent<Character_Movement_3D>().Take_Damage(10f);
+                }
+
+                if (nearbyObject.GetComponent<CharacterController>() != null) {
+                    nearbyObject.GetComponent<Character_Movement_3D>().kickDirection = Vector3.forward * attackForce;
+                    nearbyObject.GetComponent<Character_Movement_3D>().kickDuration = attackDuration;
+                }
+            }
+        }
     }
 
 
