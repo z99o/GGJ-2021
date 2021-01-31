@@ -22,6 +22,12 @@ public class Character_Movement_3D : MonoBehaviour
     [SerializeField] private float m_max_sprint_speed;
     [SerializeField] public float m_health;
     [SerializeField] public float m_max_health;
+    [SerializeField] public float m_isMoving;
+    [SerializeField] public AudioClip footStep;
+    [SerializeField] public float volume_min;
+    [SerializeField] public float volume_max;
+    [SerializeField] public float stepDistance;
+    private float accumulatedDistance = 0;
 
     [SerializeField] Vector3 m_velocity;
     [SerializeField] public bool m_is_grounded;
@@ -55,6 +61,7 @@ public class Character_Movement_3D : MonoBehaviour
         m_is_grounded = Check_If_Grounded();
         Get_Inputs();
         Move();
+        checkToPlaySteps();
     }
 
     public bool Check_If_Grounded(){
@@ -69,6 +76,7 @@ public class Character_Movement_3D : MonoBehaviour
         speed *= Calculate_Sprint();
         //Multiply by speed components
         Vector3 move = transform.right * speed.x + transform.forward * speed.y;
+        m_isMoving = move.magnitude;
         //m_velocity = (move * Time.deltaTime);
         controller.Move(move * Time.deltaTime);
         //Compute jump
@@ -154,6 +162,22 @@ public class Character_Movement_3D : MonoBehaviour
         m_health -= damage;
         if(m_health <= 0) {
             //gameover
+        }
+    }
+
+    public void checkToPlaySteps() {
+        if (!m_is_grounded)
+            return;
+
+        if (m_isMoving != 0) {
+            accumulatedDistance += Time.deltaTime;
+
+            if(accumulatedDistance > stepDistance) {
+
+                float volume = Random.Range(volume_min, volume_max);
+                GetComponent<AudioSource>().PlayOneShot(footStep, volume);
+                accumulatedDistance = 0f;
+            }
         }
     }
 

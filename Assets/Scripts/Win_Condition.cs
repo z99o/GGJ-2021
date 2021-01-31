@@ -10,7 +10,7 @@ public class Win_Condition : MonoBehaviour {
         pickedUpByPlayer = false;
     }
 
-    void OnCollisionEnter(Collision col) {
+    void OnTriggerEnter(Collider col) {
         if(col.gameObject.CompareTag("Register")) {
             if(pickedUpByPlayer) {
                 print("win");
