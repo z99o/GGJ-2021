@@ -60,9 +60,8 @@ public class PlayerInteractions : MonoBehaviour {
 
     //Release the object
     public void BreakConnection() {
-        if (physicsObject.GetComponent<ThrowObject>() == null) physicsObject = null;
+        if (physicsObject.GetComponent<ThrowObject>() != null) physicsObject.GetComponent<ThrowObject>().held = false;
 
-        physicsObject.GetComponent<ThrowObject>().held = false;
         physicsObject.transform.parent = null;
         physicsObject.GetComponent<Rigidbody>().useGravity = true;
         physicsObject.GetComponent<Rigidbody>().freezeRotation = false;
