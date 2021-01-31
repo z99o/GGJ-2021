@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//set to kinematic
+
 public class PlayerInteractions : MonoBehaviour {
     [Header("InteractableInfo")]
     public float sphereCastRadius = 0.5f;
