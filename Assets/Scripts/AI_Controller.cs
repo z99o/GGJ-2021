@@ -27,7 +27,11 @@ public class AI_Controller : MonoBehaviour {
     public Rigidbody[] body_parts;
     public List<Transform> saved_transforms;
 
+    private GameObject cereal;
+
     public Animator animator;
+
+    private bool playerHasCereal;
 
 
     void Start() {
@@ -35,24 +39,29 @@ public class AI_Controller : MonoBehaviour {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         objectThrown = false;
+        cereal = GameObject.Find("Cereal");
         //EnableRagdoll();
         DisableRagdoll();
     }
 
     void Update() {
+        playerHasCereal = cereal.GetComponent<Win_Condition>().pickedUpByPlayer;
+
         //Check if player in sight
         player_in_attack_range = Physics.CheckSphere(transform.position, attack_range, lm_player);
         player_in_sight_range = Physics.CheckSphere(transform.position, sight_range, lm_player);
         interactable_in_range = Physics.CheckSphere(transform.position, interact_range, lm_interactable);
         if(!is_ragdolled){
-            if (!player_in_sight_range && !player_in_attack_range) {
-                Patrolling();
-            }
-            if (player_in_sight_range && !player_in_attack_range) {
-                ChasePlayer();
-            }
-            if (player_in_sight_range && player_in_attack_range) {
-                AttackPlayer();
+            if (playerHasCereal) {
+                if (player_in_sight_range && !player_in_attack_range) {
+                    ChasePlayer();
+                } else if (player_in_sight_range && player_in_attack_range) {
+                    AttackPlayer();
+                }
+            } else {
+                if (!player_in_sight_range && !player_in_attack_range) {
+                    Patrolling();
+                }
             }
 
             if (isHoldingSomething) {
