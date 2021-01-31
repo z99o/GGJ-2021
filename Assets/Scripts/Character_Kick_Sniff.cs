@@ -11,8 +11,12 @@ public class Character_Kick_Sniff : MonoBehaviour {
     public float distMult; //How far away you're able to get max alpha
     public AnimationCurve m_tintCurve;
     public float m_curveDuration;
-
     public GameObject Canvas;
+
+    [Header("Kicking Settings")]
+    public Transform kickOrigin;
+    public float kickRadius;
+    public float kickForce;
 
     private GameObject cereal;
 
@@ -43,7 +47,14 @@ public class Character_Kick_Sniff : MonoBehaviour {
     }
 
     void Kick() {
+        Collider[] colliders = Physics.OverlapSphere(kickOrigin.position, kickRadius);
 
+        foreach (Collider nearbyObject in colliders) {
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (rb != null) {
+                rb.AddForce(Camera.main.transform.forward * kickForce);
+            }
+        }
     }
 
     IEnumerator EvalCurve(float alpha, Transform tintObject) {
