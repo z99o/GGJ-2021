@@ -52,7 +52,7 @@ public class Gondola : MonoBehaviour
             Transform s_start = this.gameObject.transform.Find("s" + (i+1) + "_start");
             Transform s_end = this.gameObject.transform.Find("s" + (i+1) + "_end");
 
-            int randIndex = i % shelf_items.Length;
+            int randIndex = Random.Range(0, shelf_items.Length);
 
             float shelf_width = s_end.position.x - s_start.position.x;
 
