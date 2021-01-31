@@ -16,7 +16,7 @@ public class PlayerInteractions : MonoBehaviour {
     private Rigidbody pickupRB;
     public float throwForce = 100f;
     public bool drivenByAi;
-    private bool holdingSomething;
+    [HideInInspector]public bool holdingSomething;
 
     [Header("ObjectFollow")]
     [SerializeField] private float maxDistance = 1f;
@@ -113,7 +113,6 @@ public class PlayerInteractions : MonoBehaviour {
 
     public void ThrowObject() {
         if(holdingSomething == true) {
-            print("Thrown");
             BreakConnection();
             pickupRB.AddForce((pickupRB.transform.position - transform.position) * throwForce);
         }

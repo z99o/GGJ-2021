@@ -121,7 +121,7 @@ public class AI_Controller : MonoBehaviour {
             if (chance > 33) {
                 GetComponent<PlayerInteractions>().PickUpObject(GameObject.FindWithTag("Interactable"));
                 if (holdObject != null) {
-                    isHoldingSomething = true;
+                    isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
         }
@@ -159,7 +159,7 @@ public class AI_Controller : MonoBehaviour {
             if (chance > 33 && !isHoldingSomething && !objectThrown) {
                 holdObject = GameObject.FindWithTag("Interactable");
                 if (holdObject != null) {
-                    isHoldingSomething = true;
+                    isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
         }
@@ -226,9 +226,11 @@ public class AI_Controller : MonoBehaviour {
     }
 
     private void throwObject() {
-        GetComponent<PlayerInteractions>().ThrowObject();
-        objectThrown = true;
-        isHoldingSomething = false;
+        if (isHoldingSomething) {
+            GetComponent<PlayerInteractions>().ThrowObject();
+            objectThrown = true;
+            isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
+        }
     }
 
 }
