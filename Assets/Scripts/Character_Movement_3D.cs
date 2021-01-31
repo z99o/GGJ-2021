@@ -170,9 +170,10 @@ public class Character_Movement_3D : MonoBehaviour
             return;
 
         if (m_isMoving != 0) {
+            float stepRate = stepDistance / m_isMoving;
             accumulatedDistance += Time.deltaTime;
 
-            if(accumulatedDistance > stepDistance) {
+            if(accumulatedDistance > stepRate) {
 
                 float volume = Random.Range(volume_min, volume_max);
                 GetComponent<AudioSource>().PlayOneShot(footStep, volume);

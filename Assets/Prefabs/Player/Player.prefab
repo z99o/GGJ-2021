@@ -67,102 +67,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1996119157}
---- !u!1 &1286838586
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1286838587}
-  - component: {fileID: 1286838590}
-  - component: {fileID: 1286838589}
-  - component: {fileID: 1286838588}
-  m_Layer: 7
-  m_Name: Cylinder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1286838587
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286838586}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.82, z: 0}
-  m_LocalScale: {x: 0.3, y: 1, z: 0.33}
-  m_Children: []
-  m_Father: {fileID: 1524555997}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1286838590
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286838586}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1286838589
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286838586}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1286838588
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1286838586}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &1524555996
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,12 +77,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1524555997}
   m_Layer: 7
-  m_Name: kick pivot point
+  m_Name: kick origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1524555997
 Transform:
   m_ObjectHideFlags: 0
@@ -187,10 +91,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524555996}
   m_LocalRotation: {x: -0.0064379387, y: 0.7377207, z: -0.0058910213, w: 0.67504966}
-  m_LocalPosition: {x: 0.21, y: -0.089, z: 0.12}
+  m_LocalPosition: {x: -0.022, y: -0.657, z: 0.728}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1286838587}
+  m_Children: []
   m_Father: {fileID: 2649440226451119448}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 95.08, z: -1}
@@ -271,6 +174,7 @@ GameObject:
   - component: {fileID: 1114228304}
   - component: {fileID: 43704955}
   - component: {fileID: 43704956}
+  - component: {fileID: 1112334336}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -380,7 +284,7 @@ MonoBehaviour:
   m_cur_speed_x: 0
   m_cur_speed_z: 0
   m_acceleration_rate: 10
-  m_jump_height: 1
+  m_jump_height: 2
   m_gravity: -9.8
   m_sprint_multiplier: 2
   m_sprint_cur_level: 0
@@ -389,6 +293,12 @@ MonoBehaviour:
   m_sprint_is_exhausted: 0
   m_max_sprint_speed: 10
   m_health: 0
+  m_max_health: 0
+  m_isMoving: 0
+  footStep: {fileID: 8300000, guid: 9f6c80af7ba4eb7408f7a78365776034, type: 3}
+  volume_min: 0
+  volume_max: 0
+  stepDistance: 0
   m_velocity: {x: 0, y: 0, z: 0}
   m_is_grounded: 0
   grounded_clearance: 0.2
@@ -441,6 +351,7 @@ MonoBehaviour:
   pickupParent: {fileID: 3831284035114213504}
   throwForce: 1000
   drivenByAi: 0
+  holdingSomething: 0
   maxDistance: 15
 --- !u!65 &43704956
 BoxCollider:
@@ -455,6 +366,66 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1112334336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2649440226451119429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dc0643fe606a064da569239d3b9d8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastSniff: 0
+  sniffCooldownMs: 10000
+  maxIndicatorAlpha: 240
+  distMult: 3
+  m_tintCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2
+      outSlope: -2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  m_curveDuration: 1
+  tintObject: {fileID: 0}
+  sniffSounds:
+  - {fileID: 8300000, guid: d77097c78a97dfc44821b2d724a790af, type: 3}
+  - {fileID: 8300000, guid: e45ed8c983ee79c4195eaa6004b0b6fe, type: 3}
+  - {fileID: 8300000, guid: 794d3047004dc7547b009f0f3f96aa45, type: 3}
+  - {fileID: 8300000, guid: 11d04125cad00054a8c33e33527fbfc9, type: 3}
+  kickOrigin: {fileID: 1524555997}
+  kickRadius: 1
+  kickForce: 1000
+  kickSound: {fileID: 8300000, guid: e88cfc22b89a32a499d7dc7843d4f8de, type: 3}
 --- !u!1 &2649440226828827482
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,13 +527,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouse_sensitivity: 250
-  x_rotation: -17.60709
+  x_rotation: 16.46025
   player: {fileID: 2649440226451119448}
   controller: {fileID: 2649440226451119454}
   bob_a: 0.1
   bob_h: 0.7
   bob_f: 1
-  timer: 176.6936
+  timer: 199.2172
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0

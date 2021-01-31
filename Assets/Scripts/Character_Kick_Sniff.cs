@@ -59,6 +59,7 @@ public class Character_Kick_Sniff : MonoBehaviour {
         StartCoroutine(EvalCurve(alpha, tintObject));
     }
 
+    public float kick_volume;
     void Kick() {
         Collider[] colliders = Physics.OverlapSphere(kickOrigin.position, kickRadius);
 
@@ -66,7 +67,7 @@ public class Character_Kick_Sniff : MonoBehaviour {
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if (rb != null) {
                 rb.AddForce(Camera.main.transform.forward * kickForce);
-                GetComponent<AudioSource>().PlayOneShot(kickSound, 1f);
+                GetComponent<AudioSource>().PlayOneShot(kickSound, kick_volume); //ow my ears
             }
         }
     }
