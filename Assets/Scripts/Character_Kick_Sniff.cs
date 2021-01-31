@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Character_Kick_Sniff : MonoBehaviour {
 
     [Header("Sniffing Settings")]
-    public float sniffTimer;
+    public long lastSniff;
+    public float sniffCooldown;
+
     public float maxIndicatorAlpha; //Max value of alpha
     public float distMult; //How far away you're able to get max alpha
     public AnimationCurve m_tintCurve;
