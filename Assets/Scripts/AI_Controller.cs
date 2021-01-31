@@ -28,6 +28,7 @@ public class AI_Controller : MonoBehaviour {
     public Transform attackOrigin;
     public float attackRadius;
     public float attackForce;
+    public AudioClip attackSound;
 
     [Header("Misc")]
     public Rigidbody[] body_parts;
@@ -184,6 +185,7 @@ public class AI_Controller : MonoBehaviour {
                 Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
                 if (rb != null) {
                     rb.AddForce(Vector3.forward * attackForce);
+                    GetComponent<AudioSource>().PlayOneShot(attackSound, 1f);
                 }
 
                 if (nearbyObject.GetComponent<Character_Movement_3D>() != null) {

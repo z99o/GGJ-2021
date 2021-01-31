@@ -12,11 +12,13 @@ public class Character_Kick_Sniff : MonoBehaviour {
     public AnimationCurve m_tintCurve;
     public float m_curveDuration;
     public Transform tintObject;
+    public AudioClip[] sniffSounds;
 
     [Header("Kicking Settings")]
     public Transform kickOrigin;
     public float kickRadius;
     public float kickForce;
+    public AudioClip kickSound;
 
     private GameObject cereal;
 
@@ -42,6 +44,9 @@ public class Character_Kick_Sniff : MonoBehaviour {
         float alpha = (maxIndicatorAlpha/dist) * distMult;
         alpha = Mathf.Clamp(alpha, 0, maxIndicatorAlpha);
 
+        int sniffVal = (int)(Mathf.Round(Random.value * 3));
+        GetComponent<AudioSource>().PlayOneShot(sniffSounds[sniffVal], 0.8f);
+
         StartCoroutine(EvalCurve(alpha, tintObject));
     }
 
@@ -52,6 +57,7 @@ public class Character_Kick_Sniff : MonoBehaviour {
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if (rb != null) {
                 rb.AddForce(Camera.main.transform.forward * kickForce);
+                GetComponent<AudioSource>().PlayOneShot(kickSound, 1f);
             }
         }
     }
