@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 4781347320133178724}
   - component: {fileID: 8635086180758323775}
   - component: {fileID: 7828089153060268953}
+  - component: {fileID: 4600699109357057918}
   m_Layer: 0
   m_Name: Gondola
   m_TagString: Untagged
@@ -324,6 +325,22 @@ MonoBehaviour:
   - {fileID: 8378000982596504950, guid: 90d50f05f2aadae438bdb72a85cbff70, type: 3}
   items_per_shelf: 5
   num_shelves: 3
+--- !u!208 &4600699109357057918
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161234954006675419}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 44, y: 13.5, z: 35}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -9.318001, z: 30.991001}
+  m_TimeToStationary: 0.5
 --- !u!1 &5681889658413198996
 GameObject:
   m_ObjectHideFlags: 0

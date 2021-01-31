@@ -39,6 +39,10 @@ public class AI_Controller : MonoBehaviour {
 
     private bool playerHasCereal;
 
+    private NavMeshPath path;
+
+    private float got_stuck_timer;
+
 
     void Start() {
         player = GameObject.Find("Player").transform;
@@ -94,6 +98,7 @@ public class AI_Controller : MonoBehaviour {
 
     }
 
+    private Vector3 last_pos;
     private void Patrolling() {
         if(is_idle){
             return;
@@ -104,10 +109,20 @@ public class AI_Controller : MonoBehaviour {
             animator.SetBool("a_running",false);
             SearchWalkPoint();
         }
+
         if(is_target_set) {
             animator.SetBool("a_is_idle",false);
             animator.SetBool("a_running",true);
+            got_stuck_timer += Time.deltaTime;
+            if(got_stuck_timer > 2f){
+                if(((int)last_pos.x == (int)transform.position.x && (int)last_pos.z == (int)transform.position.z)){
+                    SearchWalkPoint();
+                }
+                last_pos = transform.position;
+                got_stuck_timer = 0;
+        }
             agent.SetDestination(target_pos);
+            
         }
 
         //updates position
@@ -117,7 +132,7 @@ public class AI_Controller : MonoBehaviour {
         }
         //chance to idle
         int chance = (int)(Random.value * 100);
-            if (chance > 100) {
+            if (chance > 99) {
                 Idle(); //not really wanting to idle for debug purposes
             }
 
@@ -139,7 +154,7 @@ public class AI_Controller : MonoBehaviour {
         animator.SetBool("a_is_idle",true);
         animator.SetBool("a_running",false);
         agent.SetDestination(transform.position);
-        Invoke("EndIdle",10f);
+        Invoke("EndIdle",5f);
 
     }
     private void EndIdle(){
@@ -149,7 +164,7 @@ public class AI_Controller : MonoBehaviour {
     private void SearchWalkPoint() {
         float randomZ = Random.Range(-walk_point_range,walk_point_range);
         float randomX = Random.Range(-walk_point_range,walk_point_range);
-        target_pos = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        target_pos = GetRandomLocation();
         if(Physics.Raycast(target_pos,-transform.up, 2f, lm_ground)){
             is_target_set = true;
         }
@@ -253,5 +268,58 @@ public class AI_Controller : MonoBehaviour {
             isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
         }
     }
+
+    public float elapsed;
+    public bool show_path;
+    private void ShowPath(){
+            if(show_path){
+                path = agent.path;
+                // Update the way to the goal every second.
+                elapsed += Time.deltaTime;
+                if (elapsed > 1.0f)
+                {
+                    elapsed -= 1.0f;
+                    NavMesh.CalculatePath(transform.position, target_pos, NavMesh.AllAreas, path);
+                }
+                for (int i = 0; i < path.corners.Length - 1; i++)
+                    Debug.DrawLine(path.corners[i], path.corners[i + 1], Color.red);
+        }
+    }
+
+    Vector3 GetRandomLocation()
+    {
+        NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
+
+        int maxIndices = navMeshData.indices.Length - 3;
+        // Pick the first indice of a random triangle in the nav mesh
+        int firstVertexSelected = Random.Range(0, maxIndices);
+        int secondVertexSelected = Random.Range(0, maxIndices);
+        //Spawn on Verticies
+        Vector3 point = navMeshData.vertices[navMeshData.indices[firstVertexSelected]];
+
+        Vector3 firstVertexPosition = navMeshData.vertices[navMeshData.indices[firstVertexSelected]];
+        Vector3 secondVertexPosition = navMeshData.vertices[navMeshData.indices[secondVertexSelected]];
+        //Eliminate points that share a similar X or Z position to stop spawining in square grid line formations
+        if ((int)firstVertexPosition.x == (int)secondVertexPosition.x ||
+            (int)firstVertexPosition.z == (int)secondVertexPosition.z
+            )
+        {
+            point = GetRandomLocation(); //Re-Roll a position - I'm not happy with this recursion it could be better
+        }
+        else
+        {
+            // Select a random point on it
+            point = Vector3.Lerp(
+                                            firstVertexPosition,
+                                            secondVertexPosition, //[t + 1]],
+                                            Random.Range(0.05f, 0.95f) // Not using Random.value as clumps form around Verticies 
+                                        );
+        }
+        //Vector3.Lerp(point, navMeshData.vertices[navMeshData.indices[t + 2]], Random.value); //Made Obsolete
+
+        return point;
+    }
+
+
 
 }

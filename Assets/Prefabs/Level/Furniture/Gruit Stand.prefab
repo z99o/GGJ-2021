@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 4134386210592985632}
   - component: {fileID: 4134386210592985635}
   - component: {fileID: 4134386210592985634}
+  - component: {fileID: 8985155107903636902}
   m_Layer: 0
   m_Name: Gruit Stand
   m_TagString: Untagged
@@ -499,3 +500,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0012103439, y: 0.0025144357, z: 0.0092170285}
   m_Center: {x: -0.009394828, y: 0.008759632, z: -0.014706613}
+--- !u!208 &8985155107903636902
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4134386210592985638}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.0125, y: 0.0125, z: 0.019000001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
