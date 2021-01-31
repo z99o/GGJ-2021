@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4002470799762727997}
   - component: {fileID: 4002470799762727998}
   - component: {fileID: 4002470799762727999}
+  - component: {fileID: 2544799031368237929}
   m_Layer: 0
   m_Name: grocery
   m_TagString: Untagged
@@ -105,6 +106,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 2.77, z: 5.31}
   m_Center: {x: 1.58, y: 0, z: 0}
+--- !u!208 &2544799031368237929
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4272447294222210589}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4325639756026124584
 GameObject:
   m_ObjectHideFlags: 0
