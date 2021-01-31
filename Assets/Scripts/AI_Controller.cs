@@ -13,6 +13,9 @@ public class AI_Controller : MonoBehaviour {
     bool isHoldingSomething = false;
     GameObject holdObject;
     public float walk_point_range, sight_range, attack_range, interact_range;
+    float timer = 2f;
+
+    public bool objectThrown;
 
     //Attacking
     public float time_between_attacks;
@@ -31,6 +34,7 @@ public class AI_Controller : MonoBehaviour {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        objectThrown = false;
         //EnableRagdoll();
         DisableRagdoll();
     }
@@ -56,11 +60,21 @@ public class AI_Controller : MonoBehaviour {
             }
         }
 
+        if(objectThrown) {
+            if (timer > 0) {
+                timer -= Time.deltaTime;
+                print(timer);
+            } else {
+                objectThrown = false;
+                timer = 2f;
+                print("Done");
+            }
+        }
+
         float chance = Random.value * 100;
-        if (chance <= 0.01 && isHoldingSomething && !holdObject.GetComponent<ThrowObject>().thrown) {
-            GetComponent<PlayerInteractions>().ThrowObject();
-            holdObject.GetComponent<ThrowObject>().wasThrown();
-            isHoldingSomething = false;
+        if (chance >= 0.01 && isHoldingSomething) {
+            throwObject();
+            print("thrown");
         }
 
     }
@@ -133,7 +147,7 @@ public class AI_Controller : MonoBehaviour {
         animator.SetBool("a_running",true);
         if (interactable_in_range) {
             int chance = 100;//(int)(Random.value * 100);
-            if (chance > 33 && !isHoldingSomething) {
+            if (chance > 33 && !isHoldingSomething && !objectThrown) {
                 holdObject = GameObject.FindWithTag("Interactable");
                 if (holdObject != null) {
                     isHoldingSomething = true;
@@ -197,6 +211,12 @@ public class AI_Controller : MonoBehaviour {
             EnableRagdoll();
             Invoke("DisableRagdoll",5f);
         }
+    }
+
+    private void throwObject() {
+        GetComponent<PlayerInteractions>().ThrowObject();
+        objectThrown = true;
+        isHoldingSomething = false;
     }
 
 }
