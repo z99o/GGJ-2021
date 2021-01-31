@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417483286516427919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.023, z: 2.966}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4334143942870780388}
@@ -753,6 +753,7 @@ MonoBehaviour:
   sight_range: 20
   attack_range: 2
   interact_range: 5
+  objectThrown: 0
   time_between_attacks: 1
   is_ragdolled: 0
   force_to_ragdoll: 750
@@ -783,11 +784,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.75
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 5
+  m_Acceleration: 1111111
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -810,9 +811,10 @@ MonoBehaviour:
   sphereCastRadius: 0.5
   interactableLayerIndex: 10
   lookObject: {fileID: 0}
-  pickupParent: {fileID: 1267638363, guid: ac2e925257e921e418a78071b0f18793, type: 3}
+  pickupParent: {fileID: 2451719854832595246}
   throwForce: 1000
   drivenByAi: 1
+  holdingSomething: 0
   maxDistance: 1
 --- !u!1 &4043287335727278993
 GameObject:
@@ -1059,7 +1061,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -4971348825749208790, guid: 805473666e5b416488a05d7a3017751a, type: 3}
+  m_Mesh: {fileID: -4971348825749208790, guid: 93687596680864241970cc433ed855a0, type: 3}
   m_Bones:
   - {fileID: 5056093278030415544}
   - {fileID: 3569986629086563645}

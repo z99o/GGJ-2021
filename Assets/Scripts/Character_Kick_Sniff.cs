@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,9 @@ using UnityEngine.UI;
 public class Character_Kick_Sniff : MonoBehaviour {
 
     [Header("Sniffing Settings")]
-    public float sniffTimer;
+    public long lastSniff = 0;
+    public float sniffCooldownMs = 10000; //in millisconds 
+
     public float maxIndicatorAlpha; //Max value of alpha
     public float distMult; //How far away you're able to get max alpha
     public AnimationCurve m_tintCurve;
@@ -35,7 +38,13 @@ public class Character_Kick_Sniff : MonoBehaviour {
         }
 
         if (Input.GetButtonDown("Sniff")) {
-            Sniff();
+            long now = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+
+            if (now - lastSniff > sniffCooldownMs)
+            {
+                Sniff();
+                lastSniff = now;
+            }
         }
     }
 

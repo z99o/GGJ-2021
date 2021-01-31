@@ -46,8 +46,6 @@ public class Gondola : MonoBehaviour
 
     public void PlaceShelfItemsV2()
     {
-        Debug.Log(gameObject.transform.localRotation);
-        Debug.Log(gameObject.transform.rotation);
 
         for (int i = 0; i < num_shelves; i++)
         {
