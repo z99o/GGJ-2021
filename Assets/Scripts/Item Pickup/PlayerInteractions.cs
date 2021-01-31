@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//set to kinematic
+
 public class PlayerInteractions : MonoBehaviour {
     [Header("InteractableInfo")]
     public float sphereCastRadius = 0.5f;
@@ -16,7 +16,7 @@ public class PlayerInteractions : MonoBehaviour {
     private Rigidbody pickupRB;
     public float throwForce = 100f;
     public bool drivenByAi;
-    private bool holdingSomething;
+    [HideInInspector]public bool holdingSomething;
 
     [Header("ObjectFollow")]
     [SerializeField] private float maxDistance = 1f;
@@ -76,7 +76,6 @@ public class PlayerInteractions : MonoBehaviour {
         physicsObject = lookObject;
         pickupRB = physicsObject.GetComponent<Rigidbody>();
         holdingSomething = true;
-
         physicsObject.GetComponent<ThrowObject>().held = true;
 
         physicsObject.GetComponent<Rigidbody>().useGravity = false;
@@ -113,7 +112,6 @@ public class PlayerInteractions : MonoBehaviour {
 
     public void ThrowObject() {
         if(holdingSomething == true) {
-            print("Thrown");
             BreakConnection();
             pickupRB.AddForce((pickupRB.transform.position - transform.position) * throwForce);
         }

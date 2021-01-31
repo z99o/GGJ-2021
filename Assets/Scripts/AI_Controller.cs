@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class AI_Controller : MonoBehaviour {
 
+    [Header("Navigation")]
     public NavMeshAgent agent;
     public Transform player;
     public LayerMask lm_ground, lm_player, lm_interactable;
@@ -18,12 +19,17 @@ public class AI_Controller : MonoBehaviour {
     public bool objectThrown;
 
     //Attacking
+    [Header("Attack")]
     public float time_between_attacks;
     bool already_attacked;
     public bool is_ragdolled;
     public float force_to_ragdoll;
     public bool player_in_sight_range, player_in_attack_range, interactable_in_range;
+    public Transform attackOrigin;
+    public float attackRadius;
+    public float attackForce;
 
+    [Header("Misc")]
     public Rigidbody[] body_parts;
     public List<Transform> saved_transforms;
 
@@ -121,7 +127,7 @@ public class AI_Controller : MonoBehaviour {
             if (chance > 33) {
                 GetComponent<PlayerInteractions>().PickUpObject(GameObject.FindWithTag("Interactable"));
                 if (holdObject != null) {
-                    isHoldingSomething = true;
+                    isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
         }
@@ -159,7 +165,7 @@ public class AI_Controller : MonoBehaviour {
             if (chance > 33 && !isHoldingSomething && !objectThrown) {
                 holdObject = GameObject.FindWithTag("Interactable");
                 if (holdObject != null) {
-                    isHoldingSomething = true;
+                    isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
         }
@@ -171,6 +177,21 @@ public class AI_Controller : MonoBehaviour {
         if(!already_attacked){
             already_attacked = true;
             animator.SetTrigger("a_attack");
+
+            Collider[] colliders = Physics.OverlapSphere(attackOrigin.position, attackRadius);
+
+            foreach (Collider nearbyObject in colliders) {
+                Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+                if (rb != null) {
+                    rb.AddForce(Vector3.forward * attackForce);
+                }
+
+                if (nearbyObject.GetComponent<Character_Movement_3D>() != null) {
+                    nearbyObject.GetComponent<Character_Movement_3D>().Take_Damage(10f);
+                }
+            }
+
+
             Invoke(nameof(ResetAttack),time_between_attacks);
         }
     }
@@ -226,9 +247,11 @@ public class AI_Controller : MonoBehaviour {
     }
 
     private void throwObject() {
-        GetComponent<PlayerInteractions>().ThrowObject();
-        objectThrown = true;
-        isHoldingSomething = false;
+        if (isHoldingSomething) {
+            GetComponent<PlayerInteractions>().ThrowObject();
+            objectThrown = true;
+            isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
+        }
     }
 
 }

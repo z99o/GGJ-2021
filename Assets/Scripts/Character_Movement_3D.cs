@@ -55,7 +55,6 @@ public class Character_Movement_3D : MonoBehaviour
         m_is_grounded = Check_If_Grounded();
         Get_Inputs();
         Move();
-        Kick();
     }
 
     public bool Check_If_Grounded(){
@@ -121,17 +120,17 @@ public class Character_Movement_3D : MonoBehaviour
         return new Vector2(m_cur_speed_x,m_cur_speed_z);
     }
 
-    public float Calculate_Sprint(){
+    public float Calculate_Sprint() {
         // undo any exaustion
-        if(m_sprint_cur_level > m_sprint_max_level)
+        if (m_sprint_cur_level > m_sprint_max_level)
             m_sprint_is_exhausted = false;
 
-        if(m_sprint_cur_level < 0)
+        if (m_sprint_cur_level < 0)
             m_sprint_is_exhausted = true;
 
-        m_sprint_cur_level = Mathf.Clamp(m_sprint_cur_level,0,m_sprint_max_level);
-        if(i_is_sprinting){
-            if(m_sprint_is_exhausted){
+        m_sprint_cur_level = Mathf.Clamp(m_sprint_cur_level, 0, m_sprint_max_level);
+        if (i_is_sprinting) {
+            if (m_sprint_is_exhausted) {
                 //recover
                 m_sprint_cur_level += Time.deltaTime * m_sprint_recovery_speed;
                 return 0.5f;
@@ -144,22 +143,18 @@ public class Character_Movement_3D : MonoBehaviour
         m_cur_max_speed = m_walk_max_speed;
         //recover
         m_sprint_cur_level += Time.deltaTime * m_sprint_recovery_speed;
-        if(m_sprint_is_exhausted){
+        if (m_sprint_is_exhausted) {
             return 0.5f;
         }
         return 1;
-        
+
     }
 
-    public void Kick(){
-    //    Vector3 r = new Vector3(0,0,-90);
-     //   Debug.Log(leg_joint.transform.localRotation.eulerAngles.z );
-      //  if(leg_joint.transform.localRotation.eulerAngles.z > 270){
-       //     leg_joint.transform.Rotate(r*Time.deltaTime*kick_strength);
-      //  }
-      //  rb.MoveRotation(Quaternion.EulerAngles(0,0,-90));
+    public void Take_Damage(float damage) {
+        m_health -= damage;
+        if(m_health <= 0) {
+            //gameover
+        }
     }
-
-
 
 }
