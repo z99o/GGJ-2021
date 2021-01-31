@@ -15,12 +15,13 @@ public class Character_Movement_3D : MonoBehaviour
     [SerializeField] public float m_jump_height;
     [SerializeField] private float m_gravity = -9.8f;
     [SerializeField] private float m_sprint_multiplier;
-    [SerializeField] private float m_sprint_cur_level;
-    [SerializeField] private float m_sprint_max_level;
+    [SerializeField] public float m_sprint_cur_level;// { get; private set; }
+    [SerializeField] public float m_sprint_max_level; //{ get; private set; }
     [SerializeField] private float m_sprint_recovery_speed;
     [SerializeField] public bool m_sprint_is_exhausted;
     [SerializeField] private float m_max_sprint_speed;
-    [SerializeField] private float m_health;
+    [SerializeField] public float m_health;
+    [SerializeField] public float m_max_health;
 
     [SerializeField] Vector3 m_velocity;
     [SerializeField] public bool m_is_grounded;
@@ -158,6 +159,7 @@ public class Character_Movement_3D : MonoBehaviour
       //  }
       //  rb.MoveRotation(Quaternion.EulerAngles(0,0,-90));
     }
+
 
 
 }
