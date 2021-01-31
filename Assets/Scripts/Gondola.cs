@@ -46,8 +46,10 @@ public class Gondola : MonoBehaviour
 
     public void PlaceShelfItemsV2()
     {
+        Debug.Log(gameObject.transform.localRotation);
+        Debug.Log(gameObject.transform.rotation);
 
-        for(int i = 0; i < num_shelves; i++)
+        for (int i = 0; i < num_shelves; i++)
         {
             Transform s_start = this.gameObject.transform.Find("s" + (i+1) + "_start");
             Transform s_end = this.gameObject.transform.Find("s" + (i+1) + "_end");
@@ -63,8 +65,11 @@ public class Gondola : MonoBehaviour
                 Vector3 objSize = obj.GetComponent<Renderer>().bounds.size;
 
                 float xPos = (shelf_width) * (j / (float)items_per_shelf) + (objSize.x / 2f);
-                obj.transform.position = s_start.position + new Vector3(xPos, 0, 0);
+                float zPos = (s_end.position.z - s_start.position.z) * (j / (float)items_per_shelf); //need to interpolate 
 
+
+                obj.transform.position = s_start.position + new Vector3(xPos, 0, zPos);
+                obj.transform.localEulerAngles = gameObject.transform.localEulerAngles + new Vector3(-gameObject.transform.localEulerAngles.x, 0, 0); //new Quaternion(0, -gameObject.transform.localRotation.y, 0, 0);
             }
 
         }
