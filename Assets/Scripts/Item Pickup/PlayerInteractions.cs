@@ -76,7 +76,6 @@ public class PlayerInteractions : MonoBehaviour {
         physicsObject = lookObject;
         pickupRB = physicsObject.GetComponent<Rigidbody>();
         holdingSomething = true;
-
         physicsObject.GetComponent<ThrowObject>().held = true;
 
         physicsObject.GetComponent<Rigidbody>().useGravity = false;
