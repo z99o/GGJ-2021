@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Interactable
   - Register
+  - AI
   layers:
   - Default
   - TransparentFX

@@ -16,6 +16,7 @@ public class PlayerInteractions : MonoBehaviour {
     private Rigidbody pickupRB;
     public float throwForce = 100f;
     public bool drivenByAi;
+    private bool holdingSomething;
 
     [Header("ObjectFollow")]
     [SerializeField] private float maxDistance = 1f;
@@ -59,10 +60,13 @@ public class PlayerInteractions : MonoBehaviour {
 
     //Release the object
     public void BreakConnection() {
+        physicsObject.GetComponent<ThrowObject>().held = false;
         physicsObject.transform.parent = null;
         physicsObject.GetComponent<Rigidbody>().useGravity = true;
         physicsObject.GetComponent<Rigidbody>().freezeRotation = false;
         physicsObject.GetComponent<Rigidbody>().isKinematic = false;
+
+        holdingSomething = false;
 
         physicsObject = null;
     }
@@ -71,6 +75,9 @@ public class PlayerInteractions : MonoBehaviour {
     public void PickUpObject() {
         physicsObject = lookObject;
         pickupRB = physicsObject.GetComponent<Rigidbody>();
+        holdingSomething = true;
+
+        physicsObject.GetComponent<ThrowObject>().held = true;
 
         physicsObject.GetComponent<Rigidbody>().useGravity = false;
         physicsObject.GetComponent<Rigidbody>().freezeRotation = true;
@@ -81,7 +88,6 @@ public class PlayerInteractions : MonoBehaviour {
         if (physicsObject.TryGetComponent(out Win_Condition cereal)) {
             cereal.pickedUpByPlayer = true;
         }
-
     }
 
     //ai pickup
@@ -89,6 +95,9 @@ public class PlayerInteractions : MonoBehaviour {
         if (physicsObject == null) {
             physicsObject = pickUp;
             pickupRB = physicsObject.GetComponent<Rigidbody>();
+            holdingSomething = true;
+
+            physicsObject.GetComponent<ThrowObject>().held = true;
 
             physicsObject.GetComponent<Rigidbody>().useGravity = false;
             physicsObject.GetComponent<Rigidbody>().freezeRotation = true;
@@ -99,13 +108,15 @@ public class PlayerInteractions : MonoBehaviour {
             if (physicsObject.TryGetComponent(out Win_Condition cereal)) {
                 cereal.pickedUpByPlayer = false;
             }
-
         }
     }
 
     public void ThrowObject() {
-        BreakConnection();
-        pickupRB.AddForce((pickupRB.transform.position - transform.position) * throwForce);
+        if(holdingSomething == true) {
+            print("Thrown");
+            BreakConnection();
+            pickupRB.AddForce((pickupRB.transform.position - transform.position) * throwForce);
+        }
     }
 
 }

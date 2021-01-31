@@ -72,18 +72,18 @@ public class AI_Controller : MonoBehaviour {
         if(objectThrown) {
             if (timer > 0) {
                 timer -= Time.deltaTime;
-                print(timer);
+                //print(timer);
             } else {
                 objectThrown = false;
                 timer = 2f;
-                print("Done");
+                //print("Done");
             }
         }
 
         float chance = Random.value * 100;
         if (chance >= 0.01 && isHoldingSomething) {
             throwObject();
-            print("thrown");
+            //print("thrown");
         }
 
     }
@@ -98,7 +98,7 @@ public class AI_Controller : MonoBehaviour {
             animator.SetBool("a_running",false);
             SearchWalkPoint();
         }
-        if(is_target_set){
+        if(is_target_set) {
             animator.SetBool("a_is_idle",false);
             animator.SetBool("a_running",true);
             agent.SetDestination(target_pos);
