@@ -112,7 +112,7 @@ public class PlayerInteractions : MonoBehaviour {
 
     //ai pickup
     public void PickUpObject(GameObject pickUp) {
-        if (pickUp == null) {
+        if (pickUp != null && physicsObject == null) {
             physicsObject = pickUp;
             pickupRB = physicsObject.GetComponent<Rigidbody>();
             holdingSomething = true;
@@ -124,11 +124,6 @@ public class PlayerInteractions : MonoBehaviour {
             physicsObject.GetComponent<Rigidbody>().isKinematic = true;
             physicsObject.transform.position = pickupParent.transform.position;
             physicsObject.transform.parent = pickupParent.transform;
-
-            if (physicsObject.TryGetComponent(out Win_Condition cereal)) {
-                cereal.pickedUpByPlayer = false;
-                holdingWin = true;
-            }
         }
     }
 
