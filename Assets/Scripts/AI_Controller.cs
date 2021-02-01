@@ -100,7 +100,7 @@ public class AI_Controller : MonoBehaviour {
         }
 
         float chance = Random.value * 100;
-        if (chance >= 0.01 && isHoldingSomething) {
+        if (chance <= 0.01 && isHoldingSomething) {
             throwObject();
             //print("thrown");
         }
@@ -168,7 +168,6 @@ public class AI_Controller : MonoBehaviour {
                 if (holdObject != null && holdObject != cereal) {
                     GetComponent<PlayerInteractions>().PickUpObject(holdObject);
                     isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
-                    print("True");
                 }
             }
         }

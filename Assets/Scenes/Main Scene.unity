@@ -17971,6 +17971,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 869358773}
     - target: {fileID: 1112334336, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: kick_volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112334336, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: sniff_volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112334336, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
       propertyPath: sniffCooldownMs
       value: 1000
       objectReference: {fileID: 0}
@@ -18029,6 +18037,14 @@ PrefabInstance:
     - target: {fileID: 2649440226451119448, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: volume_max
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
+      propertyPath: volume_min
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
