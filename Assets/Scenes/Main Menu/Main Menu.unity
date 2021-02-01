@@ -1611,7 +1611,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GROCERY STORE NIGHTMARE
+  m_text: Sniffing For Cereal
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 294a3dff255dc1f42b4d57434d42135e, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 294a3dff255dc1f42b4d57434d42135e, type: 2}
