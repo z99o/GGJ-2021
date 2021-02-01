@@ -45,7 +45,6 @@ public class DisplayInstructions : MonoBehaviour
                     foreach (Transform child in controlParent.transform)
                     {
                         StartCoroutine(FadeTextToFullAlpha(fadeTime, child.GetComponent<TextMeshProUGUI>()));
-                        Debug.Log(child.name);
                     }
 
                     StartCoroutine(TriggerFadeOut(1.5f));
@@ -84,8 +83,7 @@ public class DisplayInstructions : MonoBehaviour
                 tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, tmp.color.a + (Time.deltaTime / t));
                 lastAlpha = tmp.color.a;
             }
-
-            Debug.Log(lastAlpha);
+           
 
             yield return null;
         }
@@ -106,8 +104,6 @@ public class DisplayInstructions : MonoBehaviour
         float lastAlpha = 1;
         while (lastAlpha > 0)
         {
-
-            Debug.Log("Fading all out");
             foreach (Transform child in controlParent.transform)
             {
                 TextMeshProUGUI tmp = child.GetComponent<TextMeshProUGUI>();

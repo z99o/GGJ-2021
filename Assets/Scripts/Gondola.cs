@@ -5,11 +5,13 @@ using UnityEditor;
 
 public class Gondola : MonoBehaviour
 {
-    
+
     /// <summary>
     /// Shelf items MUST be smaller than the height of the shelf. 
     /// </summary>
     public GameObject[] shelf_items;
+    public GameObject cereal;
+
 
     /// <summary>
     /// This needs to be changed if the model changes to have more shelves. 
@@ -18,6 +20,13 @@ public class Gondola : MonoBehaviour
 
     private BoxCollider[] shelf_locations;
 
+    /// <summary>
+    /// WARNING: This should only be true in ONE gondola, or it will spawn multiple cereals thus breaking the game. 
+    /// </summary>
+    public bool mustSpawnCereal { get; set; } = false; 
+    public bool cerealSpawnTarget = false;
+
+    public static List<GameObject> cerealTargets = new List<GameObject>();
 
     private Vector3 shelf_dimensions;
     public int items_per_shelf = 5;
@@ -26,7 +35,8 @@ public class Gondola : MonoBehaviour
     private void Awake()
     {
         shelf_locations = GetItemShelves(this.gameObject);
-        PlaceShelfItemsV2();
+
+        if(cerealSpawnTarget) cerealTargets.Add(this.gameObject);
     }
 
     // Start is called before the first frame update
@@ -34,6 +44,8 @@ public class Gondola : MonoBehaviour
     {
         // since the shelf is mostly a box shape, we can just use the renderer dimensions
         shelf_dimensions = GetComponent<Renderer>().bounds.size;
+        if(!cerealSpawnTarget) PlaceShelfItemsV2();
+
     }
 
 
@@ -46,31 +58,55 @@ public class Gondola : MonoBehaviour
 
     public void PlaceShelfItemsV2()
     {
+        int cereal_shelf = -1;
+        if(mustSpawnCereal && cerealSpawnTarget) cereal_shelf = Random.Range(0, num_shelves);
+        
 
         for (int i = 0; i < num_shelves; i++)
         {
             Transform s_start = this.gameObject.transform.Find("s" + (i+1) + "_start");
             Transform s_end = this.gameObject.transform.Find("s" + (i+1) + "_end");
 
-            int randIndex = Random.Range(0, shelf_items.Length);
-
-            float shelf_width = s_end.position.x - s_start.position.x;
-
-
-            for (int j = 0; j < items_per_shelf; j++)
-            {
-                GameObject obj = Instantiate(shelf_items[randIndex]);
-                Vector3 objSize = obj.GetComponent<Renderer>().bounds.size;
-
-                float xPos = (shelf_width) * (j / (float)items_per_shelf) + (objSize.x / 2f);
-                float zPos = (s_end.position.z - s_start.position.z) * (j / (float)items_per_shelf); //need to interpolate 
-
-
-                obj.transform.position = s_start.position + new Vector3(xPos, 0, zPos);
-                obj.transform.localEulerAngles = gameObject.transform.localEulerAngles + new Vector3(-gameObject.transform.localEulerAngles.x, 0, 0); //new Quaternion(0, -gameObject.transform.localRotation.y, 0, 0);
-            }
-
+            if (i == cereal_shelf) PlaceCerealOnShelf(s_start, s_end);
+            else PlaceShelfObjects(s_start, s_end);
+           
         }
+    }
+
+    public void PlaceShelfObjects(Transform s_start, Transform s_end)
+    {
+        int randIndex = Random.Range(0, shelf_items.Length);
+        float shelf_width = s_end.position.x - s_start.position.x;
+
+        for (int j = 0; j < items_per_shelf; j++)
+        {
+            GameObject obj = Instantiate(shelf_items[randIndex]);
+            Vector3 objSize = obj.GetComponent<Renderer>().bounds.size;
+
+            float xPos = (shelf_width) * (j / (float)items_per_shelf) + (objSize.x / 2f);
+            float zPos = (s_end.position.z - s_start.position.z) * (j / (float)items_per_shelf); //need to interpolate 
+
+
+            obj.transform.position = s_start.position + new Vector3(xPos, 0, zPos);
+            //the gondolas are rotated 90 degrees lol, so we need to undo that 
+            obj.transform.localEulerAngles = gameObject.transform.localEulerAngles + new Vector3(-gameObject.transform.localEulerAngles.x, 0, 0); 
+        }
+    }
+
+    public void PlaceCerealOnShelf(Transform s_start, Transform s_end)
+    {
+        float shelf_width = s_end.position.x - s_start.position.x;
+
+        GameObject obj = Instantiate(cereal);
+        Vector3 objSize = obj.GetComponent<Renderer>().bounds.size;
+
+        float xPos = (shelf_width/2f)+ (objSize.x / 2f);
+        float zPos = (s_end.position.z - s_start.position.z)/2f; //need to interpolate 
+
+        obj.transform.position = s_start.position + new Vector3(xPos, 0, zPos);
+        //the gondolas are rotated 90 degrees lol, so we need to undo that 
+        obj.transform.localEulerAngles = gameObject.transform.localEulerAngles + new Vector3(-gameObject.transform.localEulerAngles.x, 0, 0);
+
     }
 
 
@@ -119,7 +155,11 @@ public class Gondola : MonoBehaviour
         }
     }
 
-
+    /// <summary>
+    /// Finds box colliders for shelves via the shelf physics material. Box colliders suck though...
+    /// </summary>
+    /// <param name="shelfObj"></param>
+    /// <returns></returns>
     public BoxCollider[] GetItemShelves(GameObject shelfObj)
     {
         BoxCollider[] boxColliders = shelfObj.GetComponents<BoxCollider>();
