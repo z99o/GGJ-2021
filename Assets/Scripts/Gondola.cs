@@ -98,6 +98,7 @@ public class Gondola : MonoBehaviour
         float shelf_width = s_end.position.x - s_start.position.x;
 
         GameObject obj = Instantiate(cereal);
+        obj.name = "Cereal";
         Vector3 objSize = obj.GetComponent<Renderer>().bounds.size;
 
         float xPos = (shelf_width/2f)+ (objSize.x / 2f);

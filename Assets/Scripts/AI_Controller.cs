@@ -59,6 +59,9 @@ public class AI_Controller : MonoBehaviour {
     }
 
     void Update() {
+        if(cereal == null){
+            cereal = GameObject.Find("Cereal");
+        }
         playerHasCereal = cereal.GetComponent<Win_Condition>().pickedUpByPlayer;
 
         //Check if player in sight
