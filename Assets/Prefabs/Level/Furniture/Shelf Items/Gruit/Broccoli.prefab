@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8373229593852818255}
   - component: {fileID: 289273274604288959}
   - component: {fileID: 6301454644467827848}
+  - component: {fileID: 172336104222810767}
   m_Layer: 10
   m_Name: Broccoli
   m_TagString: Interactable
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6316031392572673797}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.5, y: 4.5, z: 4.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -127,3 +128,16 @@ CapsuleCollider:
   m_Height: 0.12173017
   m_Direction: 1
   m_Center: {x: 0.0039258823, y: 0.06163534, z: -0.000325609}
+--- !u!65 &172336104222810767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6316031392572673797}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.098195806, y: 0.052821398, z: 0.10516383}
+  m_Center: {x: -0.004658017, y: 0.08725921, z: 0.00062618655}
