@@ -14,6 +14,15 @@ public class Game_Master : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         controller = GameObject.Find("Player").GetComponent<Character_Movement_3D>();
+
+        Gondola.cerealTargets[Random.Range(0, Gondola.cerealTargets.Count)].GetComponent<Gondola>().mustSpawnCereal = true;
+        Debug.Log(Gondola.cerealTargets.Count);
+        
+        foreach (GameObject g in Gondola.cerealTargets)
+        {
+            g.GetComponent<Gondola>().PlaceShelfItemsV2();
+        }
+        
     }
 
     // Update is called once per frame
