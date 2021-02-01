@@ -22,6 +22,7 @@ public class DisplayInstructions : MonoBehaviour
     /// The controls to show after all the text has been displayed. 
     /// </summary>
     public GameObject controlParent;
+    public GameObject winParent;
 
     // Start is called before the first frame update
     void Start()
@@ -143,6 +144,31 @@ public class DisplayInstructions : MonoBehaviour
             i.color = new Color(i.color.r, i.color.g, i.color.b, i.color.a - (Time.deltaTime / t));
             yield return null;
         }
+    }
+
+    public IEnumerator ShowWin(float t, GameObject winParent) {
+        //setting text to invis
+        foreach (Transform child in winParent.transform) {
+            TextMeshProUGUI tmp = child.GetComponent<TextMeshProUGUI>();
+            tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, 0);
+        }
+        winParent.SetActive(true);
+
+        float lastAlpha = -1;
+        while (lastAlpha < 1) {
+
+
+            foreach (Transform child in winParent.transform) {
+                TextMeshProUGUI tmp = child.GetComponent<TextMeshProUGUI>();
+                tmp.color = new Color(tmp.color.r, tmp.color.g, tmp.color.b, tmp.color.a + (Time.deltaTime / t));
+                lastAlpha = tmp.color.a;
+            }
+
+
+            yield return null;
+        }
+
+        yield break;
     }
 
 }
