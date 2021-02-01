@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 1112334345}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,8 +297,8 @@ MonoBehaviour:
   m_max_health: 100
   m_isMoving: 0
   footStep: {fileID: 8300000, guid: 9f6c80af7ba4eb7408f7a78365776034, type: 3}
-  volume_min: 0.01
-  volume_max: 0.02
+  volume_min: 0.1
+  volume_max: 0.15
   stepDistance: 5.5
   m_velocity: {x: 0, y: 0, z: 0}
   m_is_grounded: 0
@@ -318,6 +318,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   ground_check: {fileID: 2649440227388791131}
+  kickDirection: {x: 0, y: 0, z: 0}
+  kickDuration: 0
 --- !u!54 &1114228304
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -349,6 +351,7 @@ MonoBehaviour:
   sphereCastRadius: 0.5
   interactableLayerIndex: 10
   lookObject: {fileID: 0}
+  holdingWin: 0
   pickupParent: {fileID: 3831284035114213504}
   throwForce: 2000
   drivenByAi: 0
@@ -380,7 +383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastSniff: 0
-  sniffCooldownMs: 10000
+  sniffCooldownMs: 1000
   maxIndicatorAlpha: 240
   distMult: 3
   m_tintCurve:
@@ -427,8 +430,8 @@ MonoBehaviour:
   kickRadius: 1.75
   kickForce: 750
   kickSound: {fileID: 8300000, guid: e88cfc22b89a32a499d7dc7843d4f8de, type: 3}
-  sniff_volume: 0.5
-  kick_volume: 0.02
+  sniff_volume: 1
+  kick_volume: 1
   kick_cooldown: 1
   kick_timer: 0
 --- !u!82 &1112334345

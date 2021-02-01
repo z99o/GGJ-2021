@@ -23,6 +23,7 @@ public class DisplayWin : MonoBehaviour
     /// </summary>
     public TextMeshProUGUI tex;
     public GameObject player;
+    public bool isRan = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class DisplayWin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetComponent<PlayerInteractions>().holdingWin) {
+        if (player.GetComponent<PlayerInteractions>().holdingWin && !isRan) {
             tex.gameObject.SetActive(true);
             StartCoroutine(FadeTextToFullAlpha(fadeTime, tex));
         }
@@ -41,6 +42,7 @@ public class DisplayWin : MonoBehaviour
 
     public IEnumerator FadeTextToFullAlpha(float t, TextMeshProUGUI i)
     {
+        isRan = true;
         i.color = new Color(i.color.r, i.color.g, i.color.b, 0);
         while (i.color.a < 1.0f)
         {
