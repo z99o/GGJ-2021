@@ -123,6 +123,9 @@ public class DisplayInstructions : MonoBehaviour
             yield return null;
         }
 
+        foreach (Transform child in controlParent.transform) { child.gameObject.SetActive(false); }
+        foreach (GameObject g in textElements)  {  g.SetActive(false); }
+
         gameObject.GetComponent<DisplayInstructions>().enabled = false;
     }
 

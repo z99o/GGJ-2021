@@ -16,7 +16,6 @@ public class Game_Master : MonoBehaviour
         controller = GameObject.Find("Player").GetComponent<Character_Movement_3D>();
 
         Gondola.cerealTargets[Random.Range(0, Gondola.cerealTargets.Count)].GetComponent<Gondola>().mustSpawnCereal = true;
-        Debug.Log(Gondola.cerealTargets.Count);
         
         foreach (GameObject g in Gondola.cerealTargets)
         {

@@ -759,6 +759,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1103,6 +1107,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1235,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1356,6 +1368,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -3341,7 +3357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7739613454426206896, guid: 9231cf43b9052454e976c9225fbd9bb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.65
+      value: -12.2
       objectReference: {fileID: 0}
     - target: {fileID: 7739613454426206896, guid: 9231cf43b9052454e976c9225fbd9bb7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3920,6 +3936,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4373,6 +4393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4722,6 +4746,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -6128,6 +6156,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -7637,6 +7669,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -9160,6 +9196,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -9573,6 +9613,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (35)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -9699,6 +9743,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -9860,6 +9908,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -10270,6 +10322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -10522,6 +10578,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -12141,6 +12201,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -13286,6 +13350,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -13605,6 +13673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -13804,6 +13876,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -14925,6 +15001,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -15217,6 +15297,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -15565,6 +15649,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -15921,7 +16009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7739613454426206896, guid: 9231cf43b9052454e976c9225fbd9bb7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.65
+      value: -12.2
       objectReference: {fileID: 0}
     - target: {fileID: 7739613454426206896, guid: 9231cf43b9052454e976c9225fbd9bb7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16047,6 +16135,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -17983,7 +18075,7 @@ PrefabInstance:
       objectReference: {fileID: 869358773}
     - target: {fileID: 1112334336, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
       propertyPath: kick_volume
-      value: 1
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 1112334336, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
       propertyPath: sniff_volume
@@ -18051,7 +18143,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
       propertyPath: volume_max
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2649440226451119454, guid: 384254ec47d8ff043a11c182bbb03f11, type: 3}
       propertyPath: volume_min
@@ -18246,6 +18338,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -18698,6 +18794,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -19386,6 +19486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (25)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -19812,6 +19916,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -21379,6 +21487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (29)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -22843,6 +22955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (33)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -23886,6 +24002,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -24161,6 +24281,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -25477,6 +25601,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gondola (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -26283,6 +26411,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -27311,6 +27443,10 @@ PrefabInstance:
     - target: {fileID: 3161234954006675419, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_Name
       value: Gondola (34)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828089153060268953, guid: 38784174dc065f642a99907695b847c1, type: 3}
+      propertyPath: cerealSpawnTarget
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8308113043840558615, guid: 38784174dc065f642a99907695b847c1, type: 3}
       propertyPath: m_RootOrder
@@ -28482,7 +28618,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 563905450414203418410dfbd77b278c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3780574d328bb2b46a09bede123242d1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
