@@ -8,7 +8,7 @@ public class Character_Kick_Sniff : MonoBehaviour {
 
     [Header("Sniffing Settings")]
     public long lastSniff = 0;
-    public float sniffCooldownMs = 10000; //in millisconds 
+    public float sniffCooldownMs = 7000; //in millisconds 
 
     public float maxIndicatorAlpha; //Max value of alpha
     public float distMult; //How far away you're able to get max alpha
