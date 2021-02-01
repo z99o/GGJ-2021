@@ -48,7 +48,7 @@ public class DisplayInstructions : MonoBehaviour
                         Debug.Log(child.name);
                     }
 
-                    StartCoroutine(TriggerFadeOut(2.5f));
+                    StartCoroutine(TriggerFadeOut(1.5f));
                     fadingOut = true;
                 }
             }
