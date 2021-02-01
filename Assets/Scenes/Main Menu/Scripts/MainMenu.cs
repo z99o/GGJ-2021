@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour {
 
     void Start()
     {
+        Gondola.cerealTargets = new List<GameObject>();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }

@@ -35,8 +35,7 @@ public class Gondola : MonoBehaviour
     private void Awake()
     {
         shelf_locations = GetItemShelves(this.gameObject);
-
-        if(cerealSpawnTarget) cerealTargets.Add(this.gameObject);
+        if (cerealSpawnTarget) cerealTargets.Add(this.gameObject);
     }
 
     // Start is called before the first frame update

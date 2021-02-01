@@ -28,7 +28,7 @@ public class IngameMenu : MonoBehaviour
         showControlsBtn.GetComponent<Button>().onClick.AddListener(() => { ShowControls(); });
         hideControlsBtn.GetComponent<Button>().onClick.AddListener(() => { HideControls(); });
 
-        returnMainBtn.GetComponent<Button>().onClick.AddListener(() => { SceneManager.LoadSceneAsync("Main Menu"); });
+        returnMainBtn.GetComponent<Button>().onClick.AddListener(() => { Time.timeScale = 1f; SceneManager.LoadSceneAsync("Main Menu"); });
         exitBtn.GetComponent<Button>().onClick.AddListener(() => { Application.Quit(); });
     }
 
