@@ -82,6 +82,8 @@ public class AI_Controller : MonoBehaviour {
                 GetComponent<PlayerInteractions>().PickUpObject(holdObject);
             }
         }
+        if(is_ragdolled && isHoldingSomething)
+            throwObject();
 
         if(objectThrown) {
             if (timer > 0) {
