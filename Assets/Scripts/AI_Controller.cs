@@ -322,7 +322,7 @@ public class AI_Controller : MonoBehaviour {
                 }
 
                 if (nearbyObject.GetComponent<Character_Movement_3D>() != null) {
-                    nearbyObject.GetComponent<Character_Movement_3D>().Take_Damage(10f);
+                    nearbyObject.GetComponent<Character_Movement_3D>().Take_Damage(5f);
                 }
 
                 if (nearbyObject.GetComponent<CharacterController>() != null) {

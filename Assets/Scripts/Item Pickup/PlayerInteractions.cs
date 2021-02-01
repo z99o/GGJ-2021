@@ -87,6 +87,9 @@ public class PlayerInteractions : MonoBehaviour {
     public void PickUpObject() {
         physicsObject = lookObject;
         pickupRB = physicsObject.GetComponent<Rigidbody>();
+        //make sure you're not holding something another is holding
+        if(physicsObject.GetComponent<ThrowObject>() ==  null)
+            return;
         holdingSomething = true;
         physicsObject.GetComponent<ThrowObject>().held = true;
 
