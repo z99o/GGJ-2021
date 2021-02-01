@@ -32,6 +32,9 @@ public class Character_Kick_Sniff : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if(cereal == null){
+            cereal = GameObject.Find("Cereal");
+        }
         kick_timer+= Time.deltaTime;
         if (Input.GetButtonDown("Kick")) {
             Kick();

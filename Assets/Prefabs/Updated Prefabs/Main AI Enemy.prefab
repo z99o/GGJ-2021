@@ -1282,7 +1282,7 @@ MonoBehaviour:
   objectThrown: 0
   time_between_attacks: 1
   is_ragdolled: 0
-  force_to_ragdoll: 750
+  force_to_ragdoll: 500
   player_in_sight_range: 0
   player_in_attack_range: 0
   interactable_in_range: 0
