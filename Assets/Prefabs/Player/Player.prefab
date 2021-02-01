@@ -427,11 +427,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 794d3047004dc7547b009f0f3f96aa45, type: 3}
   - {fileID: 8300000, guid: 11d04125cad00054a8c33e33527fbfc9, type: 3}
   kickOrigin: {fileID: 1524555997}
-  kickRadius: 1.75
-  kickForce: 750
+  kickRadius: 2
+  kickForce: 650
   kickSound: {fileID: 8300000, guid: e88cfc22b89a32a499d7dc7843d4f8de, type: 3}
   sniff_volume: 1
-  kick_volume: 1
+  kick_volume: 0.5
   kick_cooldown: 1
   kick_timer: 0
 --- !u!82 &1112334345
