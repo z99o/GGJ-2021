@@ -82,6 +82,8 @@ public class AI_Controller : MonoBehaviour {
                 GetComponent<PlayerInteractions>().PickUpObject(holdObject);
             }
         }
+        if(is_ragdolled && isHoldingSomething)
+            throwObject();
 
         if(objectThrown) {
             if (timer > 0) {
@@ -103,6 +105,8 @@ public class AI_Controller : MonoBehaviour {
     }
 
     private Vector3 last_pos;
+    private float idle_timer = 0;
+    private float idle_rate = 5;
     private void Patrolling() {
         if(is_idle){
             return;
@@ -135,17 +139,25 @@ public class AI_Controller : MonoBehaviour {
             is_target_set = false;
         }
         //chance to idle
-        int chance = (int)(Random.value * 100);
-            if (chance > 99) {
+        idle_timer += Time.deltaTime;
+        int chance;
+        if(idle_timer > idle_rate){
+            chance = (int)(Random.value * 100);
+            if (chance > 80) {
                 Idle(); //not really wanting to idle for debug purposes
             }
+            idle_timer = 0;
+        }
 
         //interacts with objects randomly
         if(interactable_in_range) {
             chance = (int)(Random.value * 100);
-            if (chance > 33) {
-                GetComponent<PlayerInteractions>().PickUpObject(GameObject.FindWithTag("Interactable"));
-                if (holdObject != null && holdObject.GetComponent<Win_Condition>() == null) {
+            if (chance > 33 && !isHoldingSomething && !objectThrown) {
+                holdObject = GameObject.FindWithTag("Interactable");
+                print("Hold" + (bool)(holdObject != null));
+                print("Cereal" + (bool)(holdObject != cereal));
+                if (holdObject != null && holdObject != cereal) {
+                    print("Picked");
                     isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
@@ -180,10 +192,10 @@ public class AI_Controller : MonoBehaviour {
         animator.SetBool("a_is_idle",false);
         animator.SetBool("a_running",true);
         if (interactable_in_range) {
-            int chance = 100;//(int)(Random.value * 100);
+            int chance = (int)(Random.value * 100);
             if (chance > 33 && !isHoldingSomething && !objectThrown) {
                 holdObject = GameObject.FindWithTag("Interactable");
-                if (holdObject != null && holdObject.GetComponent<Win_Condition>() == null) {
+                if (holdObject != null && holdObject != cereal) {
                     isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
