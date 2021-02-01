@@ -112,7 +112,7 @@ public class PlayerInteractions : MonoBehaviour {
 
     //ai pickup
     public void PickUpObject(GameObject pickUp) {
-        if (physicsObject == null) {
+        if (pickUp == null) {
             physicsObject = pickUp;
             pickupRB = physicsObject.GetComponent<Rigidbody>();
             holdingSomething = true;

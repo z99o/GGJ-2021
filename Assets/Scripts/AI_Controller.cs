@@ -151,14 +151,21 @@ public class AI_Controller : MonoBehaviour {
 
         //interacts with objects randomly
         if(interactable_in_range) {
-            chance = (int)(Random.value * 100);
-            if (chance > 33 && !isHoldingSomething && !objectThrown) {
-                holdObject = GameObject.FindWithTag("Interactable");
-                print("Hold" + (bool)(holdObject != null));
-                print("Cereal" + (bool)(holdObject != cereal));
+            int random = (int)(Random.value * 100);
+            if (random > 33 && !isHoldingSomething && !objectThrown) {
+                Collider[] pickers = Physics.OverlapSphere(transform.position, interact_range, lm_interactable);
+                foreach (Collider pick in pickers) {
+                    if (pick.gameObject != cereal) {
+                        float ran = Random.value * 100;
+                        if (ran > 25f) {
+                            holdObject = pick.gameObject;
+                        }
+                    }
+                }
                 if (holdObject != null && holdObject != cereal) {
-                    print("Picked");
+                    GetComponent<PlayerInteractions>().PickUpObject(holdObject);
                     isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
+                    print("True");
                 }
             }
         }
@@ -192,10 +199,20 @@ public class AI_Controller : MonoBehaviour {
         animator.SetBool("a_is_idle",false);
         animator.SetBool("a_running",true);
         if (interactable_in_range) {
-            int chance = (int)(Random.value * 100);
-            if (chance > 33 && !isHoldingSomething && !objectThrown) {
+            int random = (int)(Random.value * 100);
+            Collider[] pickers = Physics.OverlapSphere(transform.position, interact_range, lm_interactable);
+            foreach (Collider pick in pickers) {
+                if (pick.gameObject != cereal) {
+                    float ran = Random.value * 100;
+                    if (ran > 25f) {
+                        holdObject = pick.gameObject;
+                    }
+                }
+            }
+            if (random > 33 && !isHoldingSomething && !objectThrown) {
                 holdObject = GameObject.FindWithTag("Interactable");
                 if (holdObject != null && holdObject != cereal) {
+                    GetComponent<PlayerInteractions>().PickUpObject(holdObject);
                     isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
