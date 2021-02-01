@@ -103,6 +103,8 @@ public class AI_Controller : MonoBehaviour {
     }
 
     private Vector3 last_pos;
+    private float idle_timer = 0;
+    private float idle_rate = 5;
     private void Patrolling() {
         if(is_idle){
             return;
@@ -135,10 +137,15 @@ public class AI_Controller : MonoBehaviour {
             is_target_set = false;
         }
         //chance to idle
-        int chance = (int)(Random.value * 100);
-            if (chance > 99) {
+        idle_timer += Time.deltaTime;
+        int chance;
+        if(idle_timer > idle_rate){
+            chance = (int)(Random.value * 100);
+            if (chance > 80) {
                 Idle(); //not really wanting to idle for debug purposes
             }
+            idle_timer = 0;
+        }
 
         //interacts with objects randomly
         if(interactable_in_range) {
