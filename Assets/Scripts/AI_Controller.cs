@@ -145,7 +145,10 @@ public class AI_Controller : MonoBehaviour {
             chance = (int)(Random.value * 100);
             if (chance > 33 && !isHoldingSomething && !objectThrown) {
                 holdObject = GameObject.FindWithTag("Interactable");
+                print("Hold" + (bool)(holdObject != null));
+                print("Cereal" + (bool)(holdObject != cereal));
                 if (holdObject != null && holdObject != cereal) {
+                    print("Picked");
                     isHoldingSomething = GetComponent<PlayerInteractions>().holdingSomething;
                 }
             }
@@ -180,7 +183,7 @@ public class AI_Controller : MonoBehaviour {
         animator.SetBool("a_is_idle",false);
         animator.SetBool("a_running",true);
         if (interactable_in_range) {
-            int chance = 100;//(int)(Random.value * 100);
+            int chance = (int)(Random.value * 100);
             if (chance > 33 && !isHoldingSomething && !objectThrown) {
                 holdObject = GameObject.FindWithTag("Interactable");
                 if (holdObject != null && holdObject != cereal) {
