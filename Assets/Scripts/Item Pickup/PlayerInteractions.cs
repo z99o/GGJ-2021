@@ -78,6 +78,11 @@ public class PlayerInteractions : MonoBehaviour {
             item.enabled = true;
         }
 
+        CapsuleCollider[] phys_caps_colliders = physicsObject.GetComponentsInChildren<CapsuleCollider>();
+        foreach (var item in phys_caps_colliders) {
+            item.enabled = false;
+        }
+
         holdingSomething = false;
 
         physicsObject = null;
@@ -99,6 +104,11 @@ public class PlayerInteractions : MonoBehaviour {
         BoxCollider[] phys_colliders = physicsObject.GetComponentsInChildren<BoxCollider>();
         foreach (var item in phys_colliders)
         {
+            item.enabled = false;
+        }
+
+        CapsuleCollider[] phys_caps_colliders = physicsObject.GetComponentsInChildren<CapsuleCollider>();
+        foreach (var item in phys_caps_colliders) {
             item.enabled = false;
         }
         physicsObject.transform.position = lookObject.transform.position;
